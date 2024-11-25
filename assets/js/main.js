@@ -29,7 +29,7 @@
         facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
         instagram: "https://www.instagram.com/m.k.k.2001",
         twitter: "https://twitter.com/m_k_k_2001",
-        cv: "assets/images/Karthikeyan_M-CV.pdf",
+        cv: "assets/Karthikeyan_M-CV.pdf",
         projects: [
             {
                 name: "Organization Project",
