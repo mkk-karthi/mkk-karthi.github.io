@@ -17,8 +17,8 @@
         tags: ["Web App Developer", "Full Stack Developer", "Frontend Developer", "Backend Developer", "Photo Editor"],
         email: "mkk2001vnr@gmail.com",
         mobile: "+91 97919 34388",
-        current_location: "Virudhunagar",
-        preferred_location: "Chennai, Bangalore, Madurai, Coimbatore",
+        current_location: "Chennai",
+        preferred_location: "Chennai, Bangalore, Virudhunagar, Madurai, Coimbatore",
         address: "Virudhunagar, Tamilnadu, INDIA",
         address_link: "https://maps.app.goo.gl/SfCGCmK9ph428SrC8",
         gender: "Male",
@@ -51,21 +51,21 @@
                 company: "TPN",
                 content: "Developed a dynamic Social Media platform using PHP, enabling users to seamlessly post updates, engage in live streaming sessions, and participate in real-time chats for a vibrant and interactive online community experience."
             },
-            {
-                name: "Stock Management",
-                company: "Penna Cement",
-                content: "Crafted an intuitive Order Management system using Angular and PHP, allowing users to register, seamlessly create and track orders for a streamlined and user-friendly experience in managing their transactions."
-            },
+            // {
+            //     name: "Stock Management",
+            //     company: "Penna Cement",
+            //     content: "Crafted an intuitive Order Management system using Angular and PHP, allowing users to register, seamlessly create and track orders for a streamlined and user-friendly experience in managing their transactions."
+            // },
             {
                 name: "Job Seeker Portal",
                 company: "Human Bridge",
                 content: "Developed a dynamic Job Search Project with advanced features using Express and React, enabling user and company registrations, profile and skills updates with KYC approval, and efficient job creation for a streamlined and interactive employment platform."
             },
-            {
-                name: "Event Management",
-                company: "Bukit",
-                content: "Developed a Event Management system with php, allowing users to book and manage their events. Integrated real-time updates, and personalized user experiences for a smooth booking process."
-            }
+            // {
+            //     name: "Event Management",
+            //     company: "Bukit",
+            //     content: "Developed a Event Management system with php, allowing users to book and manage their events. Integrated real-time updates, and personalized user experiences for a smooth booking process."
+            // }
         ],
         interests: [
             {
@@ -248,8 +248,10 @@
         $("#call_mobile").attr("href", "tel:" + config.mobile);
         $("#whatsapp_mobile").attr("href", "https://wa.me/" + config.mobile.replaceAll(" ", "").replace("+", ""));
 
-        $("#footer_location").text(config.address);
-        $("#footer_location").attr("href", config.address_link);
+        // $("#footer_location").text(config.address);
+        // $("#footer_location").attr("href", config.address_link);
+        $("#footer_location").text("Profile");
+        $("#footer_location").attr("href", config.instagram);
         $("#footer_mobile").text(config.mobile);
         $("#footer_email").text(config.email);
         $("#footer_email").attr("href", "mailTo:" + config.email);
