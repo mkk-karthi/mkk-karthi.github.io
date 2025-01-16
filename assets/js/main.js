@@ -164,7 +164,7 @@
     // type effect
     var typeEffect = function () {
         const typed = $(".typed")
-        if (typed) {
+        if (typed.length) {
             new Typed(".typed", {
                 strings: config.tags,
                 loop: true,
@@ -231,7 +231,6 @@
     var loaderPage = function () {
         setTimeout(() => {
             $(".loader").fadeOut("slow");
-            $("body").css("overflow", "hidden scroll");
         }, 500);
     };
 

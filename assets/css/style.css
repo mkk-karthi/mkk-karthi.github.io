@@ -8,6 +8,7 @@
 }
 
 html {
+    overflow-x: hidden;
     scroll-behavior: smooth;
     /* scrollbar-color: rgb(var(--theme-primary)) rgba(var(--theme-primary), 0.4); */
 }
@@ -21,6 +22,7 @@ body {
     background-position:
         0 0,
         10px 10px;
+    overflow-x: hidden;
 }
 body[data-bs-theme="dark"] {
     --bg-color: #000;
@@ -78,6 +80,7 @@ a {
     background-color: #000;
     background-size: cover;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 #profile-content {
@@ -312,6 +315,8 @@ blockquote {
 
 /* contact */
 #contact {
+    margin-bottom: 20%;
+
     & i {
         font-size: 20px;
         color: rgb(var(--theme-primary));
@@ -343,6 +348,11 @@ blockquote {
             background: var(--theme-color-grad);
             color: #fff;
         }
+    }
+}
+@media (min-width: 768px) {
+    #contact {
+        margin-bottom: 10%;
     }
 }
 
