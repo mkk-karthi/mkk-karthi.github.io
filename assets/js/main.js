@@ -4,11 +4,11 @@
 
     var df = new Date("2021-07-15");
     var dt = new Date();
-    var startMonth = df.getFullYear() * 12 + df.getMonth();  
+    var startMonth = df.getFullYear() * 12 + df.getMonth();
     var endMonth = dt.getFullYear() * 12 + dt.getMonth();
     var monthInterval = (endMonth - startMonth);
 
-    var years = Math.floor (monthInterval / 12);
+    var years = Math.floor(monthInterval / 12);
     var months = monthInterval % 12;
     var experience_year = years + (months ? "+" : "");
 
@@ -26,8 +26,9 @@
         experience: experience_year + " Years",
         languages: "Tamil, English",
         linkedin: "https://www.linkedin.com/in/karthikeyan-m-00a19423b",
-        facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
+        github: "https://github.com/mkk-karthi",
         instagram: "https://www.instagram.com/m.k.k.2001",
+        facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
         twitter: "https://twitter.com/m_k_k_2001",
         cv: "assets/Karthikeyan_M-CV.pdf",
         projects: [
@@ -88,12 +89,12 @@
         notExpertSkills: ["Angular", "CodeIgniter", "MongoDB", "Wordpress"],
         skills: {
             "programming-languages": ["HTML5", "CSS3", "JavaScript", "PHP", "JSON", "TypeScript"],
-            "front-end": ["Vue.js", "Vuetify", "React.js", "Bootstrap", "Next.js", "jQuery", "Angular"],
+            "front-end": ["Vue.js", "React.js", "Next.js", "Angular"],
             "back-end": ["Laravel", "Node.js", "Express.js", "CodeIgniter"],
             "database": ["MySQL", "PostgreSQL", "MongoDB"],
-            "version-control": ["Git", "Bitbucket", "GitHub"],
-            "tools": ["Ubuntu", "VScode", "Git", "Composer", "npm"],
-            "other": ["Restful APIs", "AJAX", "OWASP", "Shopify", "Wordpress"],
+            "libraries": ["Bootstrap", "jQuery", "Vuetify", "Vuex", "Redux"],
+            "tools": ["Ubuntu", "VScode", "Git", "Composer", "npm", "OWASP", "Restful APIs"],
+            "other": ["Shopify", "Wordpress", "Photo Editing", "Video Editing", "OS Installation"],
         },
         experiences: [
             {
@@ -180,13 +181,13 @@
         config.projects.map((item, index) => {
             $("#project-content").append(
                 `<div class="swiper-slide">
-                    <div class="card">
+                    <div class="card border-0">
                         <div class="card-body text-center">
                             <h4 class="card-title">${item.name}</h4>
                             <h6 class="card-subtitle mb-2 text-body-secondary">${item.company}</h6>
-                            <p class="card-caption"><i class="fa fa-quote-left"></i>
+                            <p class="card-caption text-body-secondary"><i class="bi bi-quote m-0"></i>
                             ${item.content}
-                            <i class="fa fa-quote-right"></i></p>
+                            <i class="bi bi-quote m-0"></i></p>
                         </div>
                     </div>
                 </div>`
@@ -237,16 +238,16 @@
     var fetchDatas = function () {
         $("#gmap").hide();
         $("#name").text(config.name);
-        $("#email").text(config.email + " | ");
-        $("#mobile").text(config.mobile + " | ");
+        $("#email").text(config.email);
+        $("#mobile").text(config.mobile);
         $("#current_location").text(config.current_location);
         $("#preferred_location").text(config.preferred_location);
         $("#languages").text(config.languages);
         $("#experience").text(config.experience);
 
-        $("#call_email").attr("href", "mailTo:" + config.email);
-        $("#call_mobile").attr("href", "tel:" + config.mobile);
-        $("#whatsapp_mobile").attr("href", "https://wa.me/" + config.mobile.replaceAll(" ", "").replace("+", ""));
+        $("#email").attr("href", "mailTo:" + config.email);
+        $("#mobile").attr("href", "tel:" + config.mobile);
+        // $("#whatsapp_mobile").attr("href", "https://wa.me/" + config.mobile.replaceAll(" ", "").replace("+", ""));
 
         // $("#footer_location").text(config.address);
         // $("#footer_location").attr("href", config.address_link);
@@ -257,16 +258,14 @@
         $("#footer_email").attr("href", "mailTo:" + config.email);
         $("#footer_mobile").attr("href", "tel:" + config.mobile);
         $(".navbar-social #linkedin").attr("href", config.linkedin);
-        $(".navbar-social #facebook").attr("href", config.facebook);
+        $(".navbar-social #github").attr("href", config.github);
         $(".navbar-social #instagram").attr("href", config.instagram);
-        $(".navbar-social #twitter").attr("href", config.twitter);
         $(".navbar-social #cv-download").attr("href", config.cv);
 
-        $(".social-icons #linkedin").attr("href", config.linkedin);
-        $(".social-icons #facebook").attr("href", config.facebook);
-        $(".social-icons #instagram").attr("href", config.instagram);
-        $(".social-icons #twitter").attr("href", config.twitter);
-        $(".social-icons #cv-download").attr("href", config.cv);
+        $("#profile-content #linkedin").attr("href", config.linkedin);
+        $("#profile-content #github").attr("href", config.github);
+        $("#profile-content #instagram").attr("href", config.instagram);
+        $("#profile-content #cv-download").attr("href", config.cv);
 
         // fetch interests
         config.interests.map((item, index) => {
@@ -285,7 +284,7 @@
         // fetch 
         for (var key of Object.keys(config.skills)) {
             config.skills[key].forEach(v => {
-                $(`#skills #${key}`).append(`<span>${config.notExpertSkills.includes(v) ? '<i class="fa fa-star-half-o" aria-hidden="true"></i>' : '<i class="fa fa-star" aria-hidden="true"></i>'}
+                $(`#skills #${key}`).append(`<span>${config.notExpertSkills.includes(v) ? '<i class="bi bi-star-half" aria-hidden="true"></i>' : '<i class="bi bi-star-fill" aria-hidden="true"></i>'}
                  ${v}</span>`);
             })
         }
@@ -308,11 +307,11 @@
                 var className = c % 2 == 0 ? "timeline-inverted" : "timeline-unverted";
                 print += `            
             <li class="${className}" data-aos="fade-up">
-                <div class="timeline-badge"><i class="fa fa-suitcase"></i></div>
+                <div class="timeline-badge"><i class="bi bi-suitcase-lg-fill"></i></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
                         <h4 class="timeline-title">${item.role}</h4>
-                        <span class="company">${item.company}</span>
+                        <span class="company text-body-tertiary">${item.company}</span>
                         <span class="time">${item.date}</span>
                     </div>
                     <div class="timeline-body">
@@ -336,11 +335,11 @@
                     c++;
                     var className = c % 2 == 0 ? "timeline-inverted" : "timeline-unverted";
                     print += `<li class="${className}" data-aos="fade-up">
-                            <div class="timeline-badge"><i class="fa fa-graduation-cap"></i></div>
+                            <div class="timeline-badge"><i class="bi bi-mortarboard-fill"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">${item.role}</h4>
-                                    <span class="company">${item.company}</span>
+                                    <span class="company text-body-tertiary">${item.company}</span>
                                 </div>
                                 <div class="timeline-body">
                                     <p>${item.content}</p>
@@ -358,75 +357,6 @@
         }
     }
 
-    var menuActive = function () {
-
-        var triggerMenu = function () {
-            var navbar = $("#navbar");
-            var about = $("#about");
-            var mobile_navbar = $(".mobile-nav-bar");
-            var hamMenuIcon = $(".mobile-nav-bar i");
-
-            var sticky = about.offset().top;
-            var w = window.innerWidth;
-
-            $("body").css("overflow-y", "auto");
-            mobile_navbar.removeClass("active");
-            hamMenuIcon.addClass("fa-bars");
-            hamMenuIcon.removeClass("fa-times");
-            navbar.removeClass("active");
-
-            if (window.pageYOffset >= sticky) {
-                if (w >= 600) {
-                    navbar.addClass("flipInX");
-                    navbar.addClass("sticky");
-                    navbar.css("display", "block");
-                } else {
-                    navbar.removeClass("sticky");
-                    navbar.removeClass("flipInX");
-                    mobile_navbar.addClass("active")
-                    navbar.css("display", "none");
-                }
-            } else {
-                navbar.removeClass("sticky");
-                navbar.removeClass("flipInX");
-                if (w >= 600) {
-                    navbar.css("display", "none");
-                } else {
-                    navbar.css("display", "flex");
-                }
-            }
-        }
-
-        triggerMenu();
-        $(window).resize(() => { triggerMenu() });
-        $(window).scroll(() => { triggerMenu() });
-
-        var navbar = $("#navbar");
-        var hamMenuIcon = $(".mobile-nav-bar i");
-
-        $(".mobile-nav-bar").click(() => {
-
-            navbar.css("display", "flex");
-            if ($(".mobile-nav-bar i").hasClass("fa-bars")) {
-                $("body").css("overflow-y", "hidden")
-                hamMenuIcon.removeClass("fa-bars");
-                hamMenuIcon.addClass("fa-times");
-                $(".js-top").removeClass("active");
-            } else {
-                hamMenuIcon.addClass("fa-bars");
-                hamMenuIcon.removeClass("fa-times");
-                $("body").css("overflow-y", "auto")
-            }
-            navbar.toggleClass("active");
-
-        });
-        $("#navbar a").click(() => {
-            navbar.removeClass("active");
-            hamMenuIcon.addClass("fa-bars");
-            hamMenuIcon.removeClass("fa-times");
-            $("body").css("overflow-y", "auto")
-        });
-    }
     $(document).ready(function () {
 
         loaderPage();
@@ -434,7 +364,6 @@
         typeEffect();
         goToTop();
         fetchDatas();
-        menuActive();
 
         AOS.init({
             duration: 1000,
@@ -443,18 +372,26 @@
             mirror: true
         })
 
-        $('.navbar-item a').on('click', function (e) {
+        $('#nav-bar a').on('click', function (e) {
             e.preventDefault();
             var offset = 50;
             var target = this.hash;
+
+            $("#nav-bar .card a").each(function () {
+                if (target == (this.hash)) {
+                    $(this).addClass("active");
+                } else {
+                    $(this).removeClass("active");
+                }
+            });
+
             if ($(this).data('offset') != undefined) offset = $(this).data('offset');
             $('html, body').stop().animate({
-                'scrollTop': $(target).offset().top - offset
+                'scrollTop': target ? $(target).offset().top - offset : 0
             }, 500, 'swing', function () {
                 // window.location.hash = target;
             });
         });
     });
-
 
 }());
