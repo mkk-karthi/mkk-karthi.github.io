@@ -48,13 +48,13 @@ Laravel | VueJS | ReactJS | NodeJS | ExpressJS | MySQL | Postgres | Vuex | Redux
 
 <p align="center">
   <a href="https://github.com/mkk-karthi">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=mkk-karthi&theme=radical&border=7F3FBF&background=0D1117" alt="Saif's GitHub streak"/>
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=mkk-karthi&theme=radical&border=7F3FBF&background=0D1117" alt="Karthi's GitHub streak"/>
   </a>
 </p>
 
 <p align="center">
   <a href="https://github.com/mkk-karthi">
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mkk-karthi&theme=radical" alt="Al Siam's GitHub Contribution"/>
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=mkk-karthi&theme=radical" alt="Karthi's GitHub Contribution"/>
   </a>
 </p>
 
