@@ -5,6 +5,7 @@
     --theme-primary: 20, 119, 255;
     --theme-secondary: 20, 217, 255;
     --theme-color-grad: linear-gradient(144deg, rgb(var(--theme-primary)) 0%, rgb(var(--theme-secondary)) 100%);
+    --theme-color-grad-1: linear-gradient(144deg, rgba(var(--theme-primary), 0.9) 0%, rgba(var(--theme-secondary), 0.8) 100%);
 }
 
 html {
@@ -24,18 +25,47 @@ body {
         10px 10px;
     overflow-x: hidden;
 }
-body[data-bs-theme="dark"] {
+[data-bs-theme="dark"] {
     --bg-color: #000;
+    --theme-color: #212529;
     --color: #fff;
+    --bg-color-code: 0, 0, 0;
+    --theme-color-grad-1: linear-gradient(144deg, rgba(var(--theme-primary), 0.9) 0%, rgba(var(--theme-secondary), 0.6) 100%);
     background-color: #212529;
     background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #212529 0.5px);
+
+    .btn-light {
+        --bs-btn-color: rgb(var(--theme-secondary));
+        --bs-btn-bg: #212529;
+        --bs-btn-border-color: #212529;
+        --bs-btn-hover-color: rgb(var(--theme-secondary));
+        --bs-btn-hover-bg: #424649;
+        --bs-btn-hover-border-color: #424649;
+    }
+    .btn-outline-light {
+        --bs-btn-color: #212529;
+        --bs-btn-hover-color: rgb(var(--theme-secondary));
+        --bs-btn-hover-bg: #212529;
+        --bs-btn-border-color: #212529;
+        --bs-btn-hover-border-color: #212529;
+    }
 }
 
-body[data-bs-theme="light"] {
+[data-bs-theme="light"] {
     --bg-color: #fff;
+    --theme-color: #fff;
     --color: #000;
+    --bg-color-code: 255, 255, 255;
     background-color: #f3f3f3;
     background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #f3f3f3 0.5px);
+
+    .btn-light {
+        --bs-btn-color: rgb(var(--theme-primary));
+        --bs-btn-hover-color: rgb(var(--theme-primary));
+    }
+    .btn-outline-light {
+        --bs-btn-hover-color: rgb(var(--theme-primary));
+    }
 }
 
 a {
@@ -80,16 +110,17 @@ a {
     background-color: #000;
     background-size: cover;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
     overflow: hidden;
 }
 
 #profile-content {
-    background: var(--theme-color-grad);
-    opacity: 0.9;
-    color: var(--bg-color);
+    background: var(--theme-color-grad-1);
+    color: var(--theme-color);
 
     & #links a {
-        color: var(--bg-color) !important;
+        color: var(--theme-color) !important;
     }
 
     & h1 {
@@ -118,7 +149,7 @@ a {
         top: 34px;
         width: 30px;
         height: 4px;
-        background-color: var(--bg-color);
+        background-color: var(--theme-color);
     }
     &::before {
         left: 0;
@@ -128,14 +159,6 @@ a {
         right: 0;
         margin-right: -30px;
     }
-}
-
-#profile-content .btn:nth-of-type(2) {
-    color: rgb(var(--theme-primary));
-}
-
-#profile-content .btn:hover {
-    color: rgb(var(--theme-primary));
 }
 
 /* Heading */
@@ -234,7 +257,7 @@ blockquote {
     & h5 {
         border-radius: 0 10px 0 10px;
         background-color: rgb(var(--theme-primary));
-        color: var(--bg-color);
+        color: var(--theme-color);
         width: fit-content;
         padding: 4px 10px;
         margin: auto;
@@ -288,7 +311,7 @@ blockquote {
     }
 }
 #projects-overlay {
-    background: var(--theme-color-grad);
+    background: var(--theme-color-grad-1);
     opacity: 0.9;
 }
 
@@ -305,12 +328,12 @@ blockquote {
     width: 12px;
     height: 12px;
     opacity: 1;
-    background-color: var(--bg-color);
+    background-color: var(--theme-color);
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
     background-color: rgb(var(--theme-primary));
-    border: 2px solid var(--bg-color);
+    border: 2px solid var(--theme-color);
 }
 
 /* contact */
@@ -346,7 +369,7 @@ blockquote {
 
         &:hover i {
             background: var(--theme-color-grad);
-            color: #fff;
+            color: var(--theme-color);
         }
     }
 }
@@ -363,18 +386,22 @@ blockquote {
 
     & .card {
         width: fit-content;
-        background: rgba(255, 255, 255, 0.4);
+        background: rgba(var(--bg-color-code), 0.4);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(var(--bg-color-code), 0.2);
     }
 
     & .card a {
         padding: 3px 10px;
         &.active {
-            background-color: rgb(var(--theme-primary));
-            color: #fff;
+            background: var(--theme-color-grad);
+            color: var(--theme-color);
         }
+    }
+
+    & .js-gotop {
+        text-shadow: 0 0 5px #fff;
     }
 }
 
