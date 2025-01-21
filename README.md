@@ -10,6 +10,7 @@ Laravel | VueJS | ReactJS | NodeJS | ExpressJS | MySQL | Postgres | Vuex | Redux
 
 
 ## 🌐 Socials:
+[![Portfolio](https://img.shields.io/badge/Portfolio-007ACC)](https://mkk-karthi.github.io/) 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/karthikeyan-m-00a19423b) 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/m.k.k.2001) 
 [![X](https://img.shields.io/badge/x-%23000000.svg?logo=x&logoColor=white)](https://twitter.com/m_k_k_2001) 
