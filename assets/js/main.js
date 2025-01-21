@@ -2,8 +2,10 @@
 
     "use strict";
 
-    var df = new Date("2021-07-15");
+    const breakup = 9 + 84;     // breakub days
+    var df = new Date("2021-07-15");    // start of career
     var dt = new Date();
+    dt.setDate(dt.getDate() - breakup);
     var startMonth = df.getFullYear() * 12 + df.getMonth();
     var endMonth = dt.getFullYear() * 12 + dt.getMonth();
     var monthInterval = (endMonth - startMonth);
@@ -52,21 +54,11 @@
                 company: "TPN",
                 content: "Developed a dynamic Social Media platform using PHP, enabling users to seamlessly post updates, engage in live streaming sessions, and participate in real-time chats for a vibrant and interactive online community experience."
             },
-            // {
-            //     name: "Stock Management",
-            //     company: "Penna Cement",
-            //     content: "Crafted an intuitive Order Management system using Angular and PHP, allowing users to register, seamlessly create and track orders for a streamlined and user-friendly experience in managing their transactions."
-            // },
             {
                 name: "Job Seeker Portal",
                 company: "Human Bridge",
                 content: "Developed a dynamic Job Search Project with advanced features using Express and React, enabling user and company registrations, profile and skills updates with KYC approval, and efficient job creation for a streamlined and interactive employment platform."
             },
-            // {
-            //     name: "Event Management",
-            //     company: "Bukit",
-            //     content: "Developed a Event Management system with php, allowing users to book and manage their events. Integrated real-time updates, and personalized user experiences for a smooth booking process."
-            // }
         ],
         interests: [
             {
@@ -124,7 +116,13 @@
                 company: "KVS Higher Secondary School (2016 - 2018)",
                 content: "In 2018, I attended KVS HSS, where I studied in the Tamil medium and appeared for the HSC board exams. I am proud to have achieved a respectable score of 70.25%, reflecting my dedication and hard work throughout my academic journey."
             }
-        ]
+        ],
+        MetaData: {
+            title: "Karthikeyan Portfolio",
+            description: "Full Stack Developer | 3+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js",
+            keywords: "portfolio, profile, mkk, mkk hitz, mkk profile, karthikeyan, web Developer, Developer",
+            author: "MKK"
+        }
     }
 
     var fullHeight = function () {
@@ -244,6 +242,15 @@
         $("#languages").text(config.languages);
         $("#experience").text(config.experience);
 
+        $("title").text(config.MetaData.title);
+        $("meta[name=description]").attr("content", config.MetaData.description);
+        $("meta[name=keywords]").attr("content", config.MetaData.keywords);
+        $("meta[name=author]").attr("content", config.MetaData.author);
+
+        $("meta[property='og:title']").attr("content", config.MetaData.title);
+        $("meta[property='og:description']").attr("content", config.MetaData.description);
+        $("meta[property='og:site_name']").attr("content", config.MetaData.title);
+
         $("#email").attr("href", "mailTo:" + config.email);
         $("#mobile").attr("href", "tel:" + config.mobile);
         // $("#whatsapp_mobile").attr("href", "https://wa.me/" + config.mobile.replaceAll(" ", "").replace("+", ""));
@@ -296,11 +303,7 @@
         var print = "";
         var c = 0;
         if (config.experiences.length > 0) {
-            print += `<li class="timeline-heading center" data-aos="fade-up">
-                        <div>
-                            <h3>Work Experience</h3>
-                        </div>
-                    </li>`;
+            print += `<li class="timeline-heading center" data-aos="fade-up"><div><h3>Work Experience</h3></div></li>`;
             config.experiences.map((item, index) => {
                 c++;
                 var className = c % 2 == 0 ? "timeline-inverted" : "timeline-unverted";
@@ -313,9 +316,7 @@
                         <span class="company text-body-tertiary">${item.company}</span>
                         <span class="time">${item.date}</span>
                     </div>
-                    <div class="timeline-body">
-                        <p>${item.content}</p>
-                    </div>
+                    <div class="timeline-body"><p>${item.content}</p></div>
                 </div>
             </li>`;
             })
@@ -323,12 +324,7 @@
 
         if (config.experiences.length == c) {
             if (config.education.length > 0) {
-                print += `<br>
-                        <li class="timeline-heading center" data-aos="fade-up">
-                            <div>
-                                <h3>Education</h3>
-                            </div>
-                        </li>`;
+                print += `<br> <li class="timeline-heading center" data-aos="fade-up"><div><h3>Education</h3></div></li>`;
 
                 config.education.map((item, index) => {
                     c++;
@@ -340,18 +336,14 @@
                                     <h4 class="timeline-title">${item.role}</h4>
                                     <span class="company text-body-tertiary">${item.company}</span>
                                 </div>
-                                <div class="timeline-body">
-                                    <p>${item.content}</p>
-                                </div>
+                                <div class="timeline-body"><p>${item.content}</p></div>
                             </div>
                         </li>`;
                 })
             }
         }
         if (print && config.experiences.length + config.education.length == c) {
-            print += `<li class="timeline-unverted">
-                        <div class="timeline-badge" style="background-color: #e6e6e6;"></div>
-                    </li>`;
+            print += `<li class="timeline-unverted"><div class="timeline-badge" style="background-color: #e6e6e6;"></div></li>`;
             $("#resume-timeline").append(print)
         }
     }
@@ -391,6 +383,13 @@
                 // window.location.hash = target;
             });
         });
+
+        // set theme color
+        // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        //     $("body").attr("data-bs-theme", "dark")
+        // } else {
+        //     $("body").attr("data-bs-theme", "light")
+        // }
     });
 
 }());
