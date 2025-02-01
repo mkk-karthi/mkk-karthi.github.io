@@ -319,9 +319,7 @@ a {
 }
 
 /* contact */
-#contact {
-    margin-bottom: 20%;
-
+#contact .card {
     & i {
         font-size: 20px;
         color: rgb(var(--theme-primary));

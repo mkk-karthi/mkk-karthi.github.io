@@ -363,6 +363,9 @@
             mirror: true
         })
 
+        // set footer margin
+        $("#contact").css("margin-bottom", $("#nav-bar").height())
+
         $("#nav-bar a, #profile a[href='#contact']").on('click', function (e) {
             e.preventDefault();
             var offset = 50;
