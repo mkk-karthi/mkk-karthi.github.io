@@ -200,31 +200,13 @@ a {
 }
 
 /* about */
-blockquote {
-    width: 75%;
-    margin: 0 auto;
+#about-content {
+    width: 80%;
+    margin: 20px auto !important;
 
     & p {
         font-style: italic;
-    }
-
-    & p::before,
-    & p::after {
-        font-family: "bootstrap-icons";
-        font-size: 40px;
-        position: absolute;
-        opacity: 0.5;
-    }
-
-    & p::before {
-        content: "\F6B0";
-        margin: -24px 0 0 -46px;
-    }
-
-    & p::after {
-        content: "\F6B0";
-        margin: -20px 0 0 6px;
-        rotate: 180deg;
+        margin: 0;
     }
 }
 
@@ -515,7 +497,7 @@ blockquote {
 }
 
 .timeline > li > .timeline-badge {
-    color: #fff;
+    color: var(--bg-color);
     width: 44px;
     height: 44px;
     line-height: 1;

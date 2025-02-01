@@ -78,14 +78,14 @@
                 img: "software-installation.svg"
             }
         ],
-        notExpertSkills: ["Angular", "CodeIgniter", "MongoDB", "Wordpress"],
+        notExpertSkills: ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"],
         skills: {
-            "programming-languages": ["HTML5", "CSS3", "JavaScript", "PHP", "JSON", "TypeScript"],
+            "programming-languages": ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"],
             "front-end": ["Vue.js", "React.js", "Next.js", "Angular"],
-            "back-end": ["Laravel", "Node.js", "Express.js", "CodeIgniter"],
+            "back-end": ["Laravel", "Node.js", "Express.js", "CodeIgniter", "Restful APIs"],
             "database": ["MySQL", "PostgreSQL", "MongoDB"],
             "libraries": ["Bootstrap", "jQuery", "Vuetify", "Vuex", "Redux"],
-            "tools": ["Ubuntu", "VScode", "Git", "Composer", "npm", "OWASP", "Restful APIs"],
+            "tools": ["Ubuntu", "VScode", "Git", "Postman", "Composer", "npm", "OWASP"],
             "other": ["Shopify", "Wordpress", "Photo Editing", "Video Editing", "OS Installation"],
         },
         experiences: [
@@ -363,7 +363,7 @@
             mirror: true
         })
 
-        $('#nav-bar a').on('click', function (e) {
+        $("#nav-bar a, #profile a[href='#contact']").on('click', function (e) {
             e.preventDefault();
             var offset = 50;
             var target = this.hash;
