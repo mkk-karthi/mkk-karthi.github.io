@@ -2,7 +2,7 @@
 
     "use strict";
 
-    const breakup = 9 + 84;     // breakub days
+    const breakup = 103;     // breakub days
     var df = new Date("2021-07-15");    // start of career
     var dt = new Date();
     dt.setDate(dt.getDate() - breakup);
@@ -17,7 +17,7 @@
     const config = {
         name: "Karthikeyan M",
         tags: ["Web App Developer", "Full Stack Developer", "Frontend Developer", "Backend Developer", "Photo Editor"],
-        email: "mkk2001vnr@gmail.com",
+        email: "mkarthikeyan.developer@gmail.com",
         mobile: "+91 97919 34388",
         current_location: "Chennai",
         preferred_location: "Chennai, Bangalore, Virudhunagar, Madurai, Coimbatore",
@@ -33,6 +33,7 @@
         facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
         twitter: "https://twitter.com/m_k_k_2001",
         cv: "assets/Karthikeyan_M-CV.pdf",
+        description: "With 3+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (Laravel, Node.js, Express.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as B2B e-commerce sites, social media apps, members poertals, job portals, and transport websites. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
         projects: [
             {
                 name: "Organization Project",
@@ -90,10 +91,15 @@
         },
         experiences: [
             {
+                role: "Senior Software Engineer",
+                company: "Clarity TTS",
+                date: "Feb 2025 - current",
+                content: "Developing B2B and B2C transport websites for booking flights, hotels, and transfers. Integrated third-party APIs for real-time flight and hotel availability. Built features using Laravel (backend), Vue.js (frontend), and Node.js (services). Improved performance and user experience across booking flows. Worked closely with UI/UX and QA teams to ensure smooth releases."
+            }, {
                 role: "Software Engineer",
                 company: "Constient Global Solutions",
-                date: "Aug 2022 - current",
-                content: "Developed e-commerce platforms, enhancing user experience and conversion rates. Integrated Shopify API for efficient product management and order processing. Collaborated on social media applications to boost user engagement. Followed Agile methodologies for timely project delivery and high quality."
+                date: "Aug 2022 - Oct 2024",
+                content: "Developed e-commerce platforms, enhancing user experience and conversion rates. Integrated Shopify API for efficient product management and order processing. Collaborated on social media applications to boost user engagement. Followed Waterfall methodologies for timely project delivery and high quality."
             }, {
                 role: "Software Developer",
                 company: "Vaagai Tecknowledge",
@@ -235,6 +241,7 @@
     var fetchDatas = function () {
         $("#gmap").hide();
         $("#name").text(config.name);
+        $("#description").text(config.description);
         $("#email").text(config.email);
         $("#mobile").text(config.mobile);
         $("#current_location").text(config.current_location);
