@@ -17,7 +17,7 @@
     const config = {
         name: "Karthikeyan M",
         tags: ["Web App Developer", "Full Stack Developer", "Frontend Developer", "Backend Developer", "Photo Editor"],
-        email: "mkarthikeyan.developer@gmail.com",
+        email: "mkk2001vnr@gmail.com",
         mobile: "+91 97919 34388",
         current_location: "Chennai",
         preferred_location: "Chennai, Bangalore, Virudhunagar, Madurai, Coimbatore",
@@ -33,7 +33,7 @@
         facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
         twitter: "https://twitter.com/m_k_k_2001",
         cv: "assets/Karthikeyan_M-CV.pdf",
-        description: "With 3+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (Laravel, Node.js, Express.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as B2B e-commerce sites, social media apps, members poertals, job portals, and transport websites. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
+        description: "With 3.8 years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (Laravel, PHP, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as B2B e-commerce sites, social media apps, members poertals, job portals, and transport websites. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
         projects: [
             {
                 name: "Organization Project",
@@ -86,7 +86,7 @@
             "back-end": ["Laravel", "Node.js", "Express.js", "CodeIgniter", "Restful APIs"],
             "database": ["MySQL", "PostgreSQL", "MongoDB"],
             "libraries": ["Bootstrap", "jQuery", "Vuetify", "Vuex", "Redux"],
-            "tools": ["Ubuntu", "VScode", "Git", "Postman", "Composer", "npm", "OWASP"],
+            "tools": ["Ubuntu", "VScode", "Git", "Postman", "Composer", "npm", "OWASP", "Docker"],
             "other": ["Shopify", "Wordpress", "Photo Editing", "Video Editing", "OS Installation"],
         },
         experiences: [
