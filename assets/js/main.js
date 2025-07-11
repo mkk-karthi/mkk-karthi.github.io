@@ -93,7 +93,7 @@
             {
                 role: "Senior Software Engineer",
                 company: "Clarity TTS",
-                date: "Feb 2025 - current",
+                date: "Feb 2025 - JUL 2025",
                 content: "Developing B2B and B2C transport websites for booking flights, hotels, and transfers. Integrated third-party APIs for real-time flight and hotel availability. Built features using Laravel (backend), Vue.js (frontend), and Node.js (services). Improved performance and user experience across booking flows. Worked closely with UI/UX and QA teams to ensure smooth releases."
             }, {
                 role: "Software Engineer",
