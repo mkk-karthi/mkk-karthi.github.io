@@ -32,7 +32,7 @@
         instagram: "https://www.instagram.com/m.k.k.2001",
         facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
         twitter: "https://twitter.com/m_k_k_2001",
-        cv: "assets/Karthikeyan_M-CV.pdf",
+        cv: "assets/Karthikeyan-M-Resume.pdf",
         description: "With 3.8 years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (Laravel, PHP, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as B2B e-commerce sites, social media apps, members poertals, job portals, and transport websites. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
         projects: [
             {
