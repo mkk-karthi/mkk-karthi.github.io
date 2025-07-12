@@ -81,12 +81,16 @@
         ],
         notExpertSkills: ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"],
         skills: {
-            "programming-languages": ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"],
-            "front-end": ["Vue.js", "React.js", "Next.js", "Angular"],
-            "back-end": ["Laravel", "Node.js", "Express.js", "CodeIgniter", "Restful APIs"],
-            "database": ["MySQL", "PostgreSQL", "MongoDB"],
-            "libraries": ["Bootstrap", "jQuery", "Vuetify", "Vuex", "Redux"],
-            "tools": ["Ubuntu", "VScode", "Git", "Postman", "Composer", "npm", "OWASP", "Docker"],
+            "programming_languages": ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"],
+            // "front-end": ["Vue.js", "React.js", "Next.js", "Angular"],
+            "front-end": ["Vue.js", "React.js", "Bootstrap", "jQuery", ],
+            // "libraries": ["Bootstrap", "jQuery", "Vuetify", "Vuex", "Redux"],
+            "libraries": ["Vuex", "Redux", "Axios"],
+            // "back-end": ["Laravel", "Node.js", "Express.js", "CodeIgniter", "Restful APIs"],
+            "back-end": ["Laravel", "Node.js", "Express.js", "Restful APIs"],
+            // "database": ["MySQL", "PostgreSQL", "MongoDB"],
+            "database": ["MySQL", "PostgreSQL"],
+            "tools": ["Ubuntu", "Docker", "VScode", "Git", "Postman", "Composer", "npm", "OWASP"],
             "other": ["Shopify", "Wordpress", "Photo Editing", "Video Editing", "OS Installation"],
         },
         experiences: [
@@ -231,13 +235,6 @@
         });
     }
 
-    // Loading page
-    var loaderPage = function () {
-        setTimeout(() => {
-            $(".loader").fadeOut("slow");
-        }, 500);
-    };
-
     var fetchDatas = function () {
         $("#gmap").hide();
         $("#name").text(config.name);
@@ -294,12 +291,19 @@
             )
         })
 
-        // fetch 
+        // fetch skills
         for (var key of Object.keys(config.skills)) {
+            let name = key.replaceAll("_", " ")
+            let content = `<div class="col-12 col-md-4 py-3" data-aos="flip-left">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title text-capitalize">${name}</h5>
+                                <div class="card-tags" id="${key}">`;
             config.skills[key].forEach(v => {
-                $(`#skills #${key}`).append(`<span>${config.notExpertSkills.includes(v) ? '<i class="bi bi-star-half" aria-hidden="true"></i>' : '<i class="bi bi-star-fill" aria-hidden="true"></i>'}
-                 ${v}</span>`);
+                content += `<span>${config.notExpertSkills.includes(v) ? '<i class="bi bi-star-half" aria-hidden="true"></i>' : '<i class="bi bi-star-fill" aria-hidden="true"></i>'}${v}</span>`;
             })
+            content += `</div></div></div></div>`;
+            $(`#skills-content`).append(content);
         }
 
         fetchSlider();
@@ -357,7 +361,6 @@
 
     $(document).ready(function () {
 
-        loaderPage();
         fullHeight();
         typeEffect();
         goToTop();
@@ -402,4 +405,9 @@
         // }
     });
 
+    // Loading page
+    $(window).on('load', function () {
+        console.log("page loaded");
+        $(".loader").fadeOut("slow");
+    });
 }());
