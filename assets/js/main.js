@@ -4,7 +4,7 @@
 
     const breakup = 103;     // breakub days
     var df = new Date("2021-07-15");    // start of career
-    var dt = new Date();
+    var dt = new Date("2025-07-07");
     dt.setDate(dt.getDate() - breakup);
     var startMonth = df.getFullYear() * 12 + df.getMonth();
     var endMonth = dt.getFullYear() * 12 + dt.getMonth();
@@ -193,9 +193,7 @@
                         <div class="card-body text-center">
                             <h4 class="card-title">${item.name}</h4>
                             <h6 class="card-subtitle mb-2 text-body-secondary">${item.company}</h6>
-                            <p class="card-caption text-body-secondary"><i class="bi bi-quote m-0"></i>
-                            ${item.content}
-                            <i class="bi bi-quote m-0"></i></p>
+                            <p class="card-caption text-body-secondary">${item.content}</p>
                         </div>
                     </div>
                 </div>`

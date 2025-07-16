@@ -93,7 +93,6 @@ transform: rotate(1turn);
 background-image: url("../images/cover_bg.jpg");
 background-color: #000;
 background-size: cover;
-background-attachment: fixed;
 background-repeat: no-repeat;
 background-position: center;
 overflow: hidden;
@@ -233,7 +232,6 @@ margin-right: 4px;
 background-image: url("../images/cover_bg.jpg");
 background-color: #000;
 background-size: cover;
-background-attachment: fixed;
 & .card {
 display: inline-block;
 position: relative;

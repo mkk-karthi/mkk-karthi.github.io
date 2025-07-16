@@ -1,10 +1,12 @@
-
-
 :root {
     --theme-primary: 20, 119, 255;
     --theme-secondary: 20, 217, 255;
     --theme-color-grad: linear-gradient(144deg, rgb(var(--theme-primary)) 0%, rgb(var(--theme-secondary)) 100%);
-    --theme-color-grad-1: linear-gradient(144deg, rgba(var(--theme-primary), 0.9) 0%, rgba(var(--theme-secondary), 0.8) 100%);
+    --theme-color-grad-1: linear-gradient(
+        144deg,
+        rgba(var(--theme-primary), 0.9) 0%,
+        rgba(var(--theme-secondary), 0.8) 100%
+    );
 }
 
 html {
@@ -29,7 +31,11 @@ body {
     --theme-color: #212529;
     --color: #fff;
     --bg-color-code: 0, 0, 0;
-    --theme-color-grad-1: linear-gradient(144deg, rgba(var(--theme-primary), 0.9) 0%, rgba(var(--theme-secondary), 0.6) 100%);
+    --theme-color-grad-1: linear-gradient(
+        144deg,
+        rgba(var(--theme-primary), 0.9) 0%,
+        rgba(var(--theme-secondary), 0.6) 100%
+    );
     background-color: #212529;
     background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #212529 0.5px);
 
@@ -108,7 +114,6 @@ a {
     background-image: url("../images/cover_bg.jpg");
     background-color: #000;
     background-size: cover;
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     overflow: hidden;
@@ -269,7 +274,6 @@ a {
     background-image: url("../images/cover_bg.jpg");
     background-color: #000;
     background-size: cover;
-    background-attachment: fixed;
 
     & .card {
         display: inline-block;
