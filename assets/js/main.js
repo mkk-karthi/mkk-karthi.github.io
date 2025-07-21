@@ -27,58 +27,19 @@
         dob: "15/07/2001",
         experience: experience_year + " Years",
         languages: "Tamil, English",
-        linkedin: "https://www.linkedin.com/in/karthikeyan-m-00a19423b",
+        linkedin: "https://www.linkedin.com/in/karthikeyan-developer-mkk",
         github: "https://github.com/mkk-karthi",
         instagram: "https://www.instagram.com/m.k.k.2001",
         facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
         twitter: "https://twitter.com/m_k_k_2001",
         cv: "assets/Karthikeyan-M-Resume.pdf",
         description: "With 3.8 years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (Laravel, PHP, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as B2B e-commerce sites, social media apps, members poertals, job portals, and transport websites. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
-        projects: [
-            {
-                name: "Organization Project",
-                company: "JCI",
-                content: "Developed a comprehensive Organization Project using Laravel and Vue.js, facilitating user management, position upgrades, seamless payment gateways, and event creation for a feature-rich and organized digital ecosystem."
-            },
-            {
-                name: "Stock & Order Management",
-                company: "Tara Cards",
-                content: "Built a robust Stock Management system with CodeIgniter, empowering efficient product creation, streamlined invoicing processes, and user management functionalities for seamless control and organization of inventory operations."
-            },
-            {
-                name: "E-commerce (B2B)",
-                company: "Ebix Pro",
-                content: "Developed a responsive Business to Business e-commerce platform using Laravel and vue.js, allowing Multi store register, Manage stores and users to browse products, add them to the cart, and complete the checkout process."
-            },
-            {
-                name: "Social Media Application",
-                company: "TPN",
-                content: "Developed a dynamic Social Media platform using PHP, enabling users to seamlessly post updates, engage in live streaming sessions, and participate in real-time chats for a vibrant and interactive online community experience."
-            },
-            {
-                name: "Job Seeker Portal",
-                company: "Human Bridge",
-                content: "Developed a dynamic Job Search Project with advanced features using Express and React, enabling user and company registrations, profile and skills updates with KYC approval, and efficient job creation for a streamlined and interactive employment platform."
-            },
-        ],
-        interests: [
-            {
-                name: "Web App developing",
-                img: "web-development.svg"
-            },
-            {
-                name: "Photo & Videos Editing",
-                img: "ps.svg"
-            },
-            {
-                name: "Youtuber",
-                img: "youtube1.svg"
-            },
-            {
-                name: "PC OS & Software Installation",
-                img: "software-installation.svg"
-            }
-        ],
+        MetaData: {
+            title: "Karthikeyan Portfolio",
+            description: "Full Stack Developer | 3+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js",
+            keywords: "portfolio, profile, mkk, mkk hitz, mkk profile, karthikeyan, web Developer, Developer",
+            author: "MKK"
+        },
         notExpertSkills: ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"],
         skills: {
             "programming_languages": ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"],
@@ -127,12 +88,34 @@
                 content: "In 2018, I attended KVS HSS, where I studied in the Tamil medium and appeared for the HSC board exams. I am proud to have achieved a respectable score of 70.25%, reflecting my dedication and hard work throughout my academic journey."
             }
         ],
-        MetaData: {
-            title: "Karthikeyan Portfolio",
-            description: "Full Stack Developer | 3+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js",
-            keywords: "portfolio, profile, mkk, mkk hitz, mkk profile, karthikeyan, web Developer, Developer",
-            author: "MKK"
-        }
+        projects: [
+            {
+                name: "Organization Project",
+                company: "JCI",
+                content: "Developed a comprehensive Organization Project using Laravel and Vue.js, facilitating user management, position upgrades, seamless payment gateways, and event creation for a feature-rich and organized digital ecosystem."
+            },
+            {
+                name: "Stock & Order Management",
+                company: "Tara Cards",
+                content: "Built a robust Stock Management system with CodeIgniter, empowering efficient product creation, streamlined invoicing processes, and user management functionalities for seamless control and organization of inventory operations."
+            },
+            {
+                name: "E-commerce (B2B)",
+                company: "Ebix Pro",
+                content: "Developed a responsive Business to Business e-commerce platform using Laravel and vue.js, allowing Multi store register, Manage stores and users to browse products, add them to the cart, and complete the checkout process."
+            },
+            {
+                name: "Social Media Application",
+                company: "TPN",
+                content: "Developed a dynamic Social Media platform using PHP, enabling users to seamlessly post updates, engage in live streaming sessions, and participate in real-time chats for a vibrant and interactive online community experience."
+            },
+            {
+                name: "Job Seeker Portal",
+                company: "Human Bridge",
+                content: "Developed a dynamic Job Search Project with advanced features using Express and React, enabling user and company registrations, profile and skills updates with KYC approval, and efficient job creation for a streamlined and interactive employment platform."
+            },
+        ],
+        achievements: []
     }
 
     var fullHeight = function () {
@@ -186,7 +169,7 @@
     // slider
     var fetchSlider = function () {
 
-        config.projects.map((item, index) => {
+        config.projects.map((item) => {
             $("#project-content").append(
                 `<div class="swiper-slide">
                     <div class="card border-0">
@@ -274,20 +257,6 @@
         $("#profile-content #github").attr("href", config.github);
         $("#profile-content #instagram").attr("href", config.instagram);
         $("#profile-content #cv-download").attr("href", config.cv);
-
-        // fetch interests
-        config.interests.map((item, index) => {
-            $("#interest-content").append(
-                `<div class="col-lg-3 col-md-6 col-sm-12 col-12 py-3 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="${index * 200}">
-                    <div class="card">
-                        <div class="card-avatar">
-                            <img src="assets/images/icons/${item.img}" class="img" alt="${item.name}">
-                        </div>
-                        <h5 class="card-caption">${item.name}</h5>
-                    </div>
-                </div>`
-            )
-        })
 
         // fetch skills
         for (var key of Object.keys(config.skills)) {
@@ -405,7 +374,6 @@
 
     // Loading page
     $(window).on('load', function () {
-        console.log("page loaded");
         $(".loader").fadeOut("slow");
     });
 }());

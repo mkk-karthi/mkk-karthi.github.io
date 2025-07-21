@@ -322,6 +322,38 @@ a {
     border: 2px solid var(--theme-color);
 }
 
+/* achievements */
+#achievements {
+    & .card {
+        border: 2px solid rgb(var(--theme-primary));
+    }
+
+    & .card::before,
+    & .card::after {
+        content: "\F6B0";
+        font-family: "bootstrap-icons";
+        font-size: 30px;
+        color: rgb(var(--theme-primary));
+        position: absolute;
+        text-shadow:
+            -2px -2px 0 var(--theme-color),
+            2px -2px 0 var(--theme-color),
+            -2px 2px 0 var(--theme-color),
+            2px 2px 0 var(--theme-color);
+    }
+
+    & .card::before {
+        top: -25px;
+        left: 10px;
+    }
+
+    & .card::after {
+        bottom: -25px;
+        right: 10px;
+        rotate: 180deg;
+    }
+}
+
 /* contact */
 #contact .card {
     & i {
