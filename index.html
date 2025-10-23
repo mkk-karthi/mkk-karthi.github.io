@@ -84,9 +84,6 @@
                         <a id="github" class="m-2 fs-4 text-decoration-none" href="#" target="_blank">
                             <i class="bi bi-github"></i>
                         </a>
-                        <a id="instagram" class="m-2 fs-4 text-decoration-none" href="#" target="_blank">
-                            <i class="bi bi-instagram"></i>
-                        </a>
                     </div>
 
                     <div class="mt-1">
@@ -106,39 +103,23 @@
                 <div class="text-center m-2" data-aos="fade-up" id="about-content">
                     <p id="description">
                     </p>
+                    <div class="d-flex justify-content-evenly" id="profile-details">
+                      <div>
+                        <i class="bi bi-geo-alt"></i>
+                        <span id="current_location"></span>
+                      </div>
+                      <div>
+                        <i class="bi bi-envelope"></i>
+                        <a href="#" id="email" target="_blank"></a>
+                      </div>
+                      <div>
+                        <i class="bi bi-telephone"></i>
+                        <a href="tel://" id="mobile" target="_blank"></a>
+                      </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- <div class="col-12 mt-3" data-aos="zoom-in">
-                <h2 class="fs-2 heading">Profile</h2>
-            </div> -->
-
-            <div class="col-12">
-                <div class="justify-content-evenly" id="profile-details">
-                    <ul class="list-unstyled m-0" data-aos="fade-right">
-                        <li><i class="bi bi-envelope"></i>
-                            <strong>Email:</strong> <a href="#" id="email" target="_blank"></a>
-                        </li>
-                        <li><i class="bi bi-telephone"></i>
-                            <strong>Mobile:</strong>
-                            <a href="tel://" id="mobile" target="_blank"></a>
-                        </li>
-                        <li><i class="bi bi-award"></i>
-                            <strong>Experience:</strong>
-                            <span id="experience"></span>
-                        </li>
-                    </ul>
-                    <ul class="list-unstyled m-0" data-aos="fade-left">
-                        <li><i class="bi bi-geo-alt"></i>
-                            <strong>Location:</strong> <span id="current_location"></span>
-                        </li>
-                        <li><i class="bi bi-translate"></i>
-                            <strong>Languages Known:</strong>
-                            <span id="languages"></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             <div class="col-12 mt-5" id="skills">
                 <h2 class="fs-2 heading" data-aos="zoom-in">Skills</h2>
 
@@ -175,7 +156,44 @@
         </div>
     </section>
 
-    <div class="container mt-5" id="contact">
+    <!-- <section class="container mt-5" id="achievements">
+        <h2 class="fs-2 heading" data-aos="zoom-in">Achievements</h2>
+
+        <div class="row my-3 d-flex justify-content-center" id="review-content">
+            <div class="col-12 col-md-6 py-3" data-aos="flip-left">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="card-text text-body-secondary text-center">
+                            <p class="content">
+                                ${item.content}
+                            </p>
+                            <div class="footer">
+                                <p>- Ragu</p>
+                                <p>Team Lead (Constient Global Solutions)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 py-3" data-aos="flip-left">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="card-text text-body-secondary text-center">
+                            <p class="content">
+                                ${item.content}
+                            </p>
+                            <div class="footer">
+                                <p>- Divagar</p>
+                                <p>Project Manager (Clarity TTS)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="container mt-5" id="contact">
         <div class="card">
             <div class="card-body row p-3">
                 <div class="col-md-12 mb-3">
@@ -208,7 +226,7 @@
             </div>
         </div>
         <div class="text-center fs-6 py-2">&copy; 2025 <a href="#">MKK Creation</a>. All Rights Reserved.</div>
-    </div>
+    </section>
 
     <div class="position-fixed start-0 w-100" id="nav-bar" data-aos="fade-up" data-aos-anchor="#about">
         <div class="d-flex align-items-center justify-content-center js-top">

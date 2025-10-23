@@ -4,6 +4,7 @@
 --theme-secondary: 20, 217, 255;
 --theme-color-grad: linear-gradient(144deg, rgb(var(--theme-primary)) 0%, rgb(var(--theme-secondary)) 100%);
 --theme-color-grad-1: linear-gradient(144deg, rgba(var(--theme-primary), 0.9) 0%, rgba(var(--theme-secondary), 0.8) 100%);
+--theme-color-grad-top: linear-gradient(0deg, rgb(var(--theme-primary)) 0%, rgb(var(--theme-secondary)) 100%);
 }
 html {
 overflow-x: hidden;
@@ -174,17 +175,16 @@ font-style: italic;
 margin: 0;
 }}
 #profile-details {
-display: grid;
-& li i {
 color: rgb(var(--theme-primary));
-font-size: 20px;
-}
-& li strong {
-margin-left: 8px;
+padding: 10px;
+& a, & span {
+color: rgb(var(--theme-primary)) !important;
+font-size: 18px;
+font-weight: bold;
 }}
-@media (min-width: 768px) {
+@media (max-width: 768px) {
 #profile-details {
-display: flex;
+flex-direction: column;
 }}
 #skills .card {
 border-radius: 0 20px 0 20px;

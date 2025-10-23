@@ -7,6 +7,7 @@
         rgba(var(--theme-primary), 0.9) 0%,
         rgba(var(--theme-secondary), 0.8) 100%
     );
+    --theme-color-grad-top: linear-gradient(0deg, rgb(var(--theme-primary)) 0%, rgb(var(--theme-secondary)) 100%);
 }
 
 html {
@@ -216,21 +217,19 @@ a {
 
 /* profile */
 #profile-details {
-    display: grid;
+    color: rgb(var(--theme-primary));
+    padding: 10px;
 
-    & li i {
-        color: rgb(var(--theme-primary));
-        font-size: 20px;
-    }
-
-    & li strong {
-        margin-left: 8px;
+    & a, & span {
+      color: rgb(var(--theme-primary)) !important;
+      font-size: 18px;
+      font-weight: bold;
     }
 }
-@media (min-width: 768px) {
-    #profile-details {
-        display: flex;
-    }
+@media (max-width: 768px) {
+  #profile-details {
+    flex-direction: column;
+  }
 }
 
 /* Skills */

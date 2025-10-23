@@ -19,7 +19,7 @@
         tags: ["Web App Developer", "Full Stack Developer", "Frontend Developer", "Backend Developer", "Photo Editor"],
         email: "mkk2001vnr@gmail.com",
         mobile: "+91 97919 34388",
-        current_location: "Chennai",
+        current_location: "Chennai, India",
         preferred_location: "Chennai, Bangalore, Virudhunagar, Madurai, Coimbatore",
         address: "Virudhunagar, Tamilnadu, INDIA",
         address_link: "https://maps.app.goo.gl/SfCGCmK9ph428SrC8",
@@ -29,11 +29,8 @@
         languages: "Tamil, English",
         linkedin: "https://www.linkedin.com/in/karthikeyan-developer-mkk",
         github: "https://github.com/mkk-karthi",
-        instagram: "https://www.instagram.com/m.k.k.2001",
-        facebook: "https://www.facebook.com/profile.php?id=100027787782898&mibextid=ZbWKwL",
-        twitter: "https://twitter.com/m_k_k_2001",
         cv: "assets/Karthikeyan-M-Resume.pdf",
-        description: "With 3.8 years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (Laravel, PHP, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as B2B e-commerce sites, social media apps, members poertals, job portals, and transport websites. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
+        description: "With 3+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
         MetaData: {
             title: "Karthikeyan Portfolio",
             description: "Full Stack Developer | 3+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js",
@@ -43,19 +40,20 @@
         notExpertSkills: ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"],
         skills: {
             "programming_languages": ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"],
-            // "front-end": ["Vue.js", "React.js", "Next.js", "Angular"],
-            "front-end": ["Vue.js", "React.js", "Bootstrap", "jQuery", ],
-            // "libraries": ["Bootstrap", "jQuery", "Vuetify", "Vuex", "Redux"],
-            "libraries": ["Vuex", "Redux", "Axios"],
-            // "back-end": ["Laravel", "Node.js", "Express.js", "CodeIgniter", "Restful APIs"],
-            "back-end": ["Laravel", "Node.js", "Express.js", "Restful APIs"],
-            // "database": ["MySQL", "PostgreSQL", "MongoDB"],
+            "frameworks": ["Laravel", "Node.js", "Express.js", "Vue.js", "React.js"],
+            "libraries": ["Bootstrap", "Tailwind CSS", "jQuery","Vuex", "Redux"],
             "database": ["MySQL", "PostgreSQL"],
-            "tools": ["Ubuntu", "Docker", "VScode", "Git", "Postman", "Composer", "npm", "OWASP"],
-            "other": ["Shopify", "Wordpress", "Photo Editing", "Video Editing", "OS Installation"],
+            "tools": ["Git", "VScode", "Postman", "npm", "Composer", "Docker", "OWASP"],
+            // "other": ["Shopify", "Wordpress", "Photo Editing", "Video Editing", "OS Installation"],
+            "languages_known": ["Tamil", "English"],
         },
         experiences: [
             {
+                role: "Senior Software Engineer",
+                company: "ISYS Technologies",
+                date: "SEP 2025 - Current",
+                content: ""
+            }, {
                 role: "Senior Software Engineer",
                 company: "Clarity TTS",
                 date: "Feb 2025 - JUL 2025",
@@ -243,19 +241,16 @@
         // $("#footer_location").text(config.address);
         // $("#footer_location").attr("href", config.address_link);
         $("#footer_location").text("Profile");
-        $("#footer_location").attr("href", config.instagram);
         $("#footer_mobile").text(config.mobile);
         $("#footer_email").text(config.email);
         $("#footer_email").attr("href", "mailTo:" + config.email);
         $("#footer_mobile").attr("href", "tel:" + config.mobile);
         $(".navbar-social #linkedin").attr("href", config.linkedin);
         $(".navbar-social #github").attr("href", config.github);
-        $(".navbar-social #instagram").attr("href", config.instagram);
         $(".navbar-social #cv-download").attr("href", config.cv);
 
         $("#profile-content #linkedin").attr("href", config.linkedin);
         $("#profile-content #github").attr("href", config.github);
-        $("#profile-content #instagram").attr("href", config.instagram);
         $("#profile-content #cv-download").attr("href", config.cv);
 
         // fetch skills
