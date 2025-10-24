@@ -30,7 +30,7 @@
         linkedin: "https://www.linkedin.com/in/karthikeyan-developer-mkk",
         github: "https://github.com/mkk-karthi",
         cv: "assets/Karthikeyan-M-Resume.pdf",
-        description: "With 3+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
+        description: "With 3+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
         MetaData: {
             title: "Karthikeyan Portfolio",
             description: "Full Stack Developer | 3+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js",
@@ -88,29 +88,39 @@
         ],
         projects: [
             {
-                name: "Organization Project",
-                company: "JCI",
-                content: "Developed a comprehensive Organization Project using Laravel and Vue.js, facilitating user management, position upgrades, seamless payment gateways, and event creation for a feature-rich and organized digital ecosystem."
+                name: "Create Express Project",
+                company: "NPM",
+                content: '"create-new-express-project" is a CLI tool that scaffolds a ready-to-go Express.js project, empowering developers to kick off backend APIs swiftly by generating boilerplate code, folder structure, and essential configuration with a single command.',
+                link: "",
+                github: ""
             },
             {
-                name: "Stock & Order Management",
-                company: "Tara Cards",
-                content: "Built a robust Stock Management system with CodeIgniter, empowering efficient product creation, streamlined invoicing processes, and user management functionalities for seamless control and organization of inventory operations."
+                name: "React Games",
+                company: "Own Project",
+                content: '"React Games" is a collection of small web games built using React. It helps developers learn front-end development, game logic, and user interaction. Each game is easy to play and made with reusable React components, making it useful for learning, practice, or adding games to other web projects.',
+                link: "",
+                github: ""
+            },
+            {
+                name: "Organization Project",
+                company: "JCI",
+                content: "Developed a comprehensive Organization Project using Laravel and Vue.js, facilitating user management, position upgrades, seamless payment gateways, and event creation for a feature-rich and organized digital ecosystem.",
+                link: "",
+                github: ""
             },
             {
                 name: "E-commerce (B2B)",
                 company: "Ebix Pro",
-                content: "Developed a responsive Business to Business e-commerce platform using Laravel and vue.js, allowing Multi store register, Manage stores and users to browse products, add them to the cart, and complete the checkout process."
+                content: "Developed a responsive Business to Business e-commerce platform using Laravel and vue.js, allowing Multi store register, Manage stores and users to browse products, add them to the cart, and complete the checkout process.",
+                link: "",
+                github: ""
             },
             {
                 name: "Social Media Application",
                 company: "TPN",
-                content: "Developed a dynamic Social Media platform using PHP, enabling users to seamlessly post updates, engage in live streaming sessions, and participate in real-time chats for a vibrant and interactive online community experience."
-            },
-            {
-                name: "Job Seeker Portal",
-                company: "Human Bridge",
-                content: "Developed a dynamic Job Search Project with advanced features using Express and React, enabling user and company registrations, profile and skills updates with KYC approval, and efficient job creation for a streamlined and interactive employment platform."
+                content: "Developed a dynamic Social Media platform using PHP, enabling users to seamlessly post updates, engage in live streaming sessions, and participate in real-time chats for a vibrant and interactive online community experience.",
+                link: "",
+                github: ""
             },
         ],
         achievements: []
@@ -236,10 +246,7 @@
 
         $("#email").attr("href", "mailTo:" + config.email);
         $("#mobile").attr("href", "tel:" + config.mobile);
-        // $("#whatsapp_mobile").attr("href", "https://wa.me/" + config.mobile.replaceAll(" ", "").replace("+", ""));
 
-        // $("#footer_location").text(config.address);
-        // $("#footer_location").attr("href", config.address_link);
         $("#footer_location").text("Profile");
         $("#footer_mobile").text(config.mobile);
         $("#footer_email").text(config.email);
@@ -365,6 +372,10 @@
         // } else {
         //     $("body").attr("data-bs-theme", "light")
         // }
+
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
     });
 
     // Loading page
