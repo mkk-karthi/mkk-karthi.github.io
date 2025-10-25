@@ -201,14 +201,14 @@
     config.projects.map((item) => {
       $("#project-content").append(
         `<div class="swiper-slide">
-                    <div class="card border-0">
-                        <div class="card-body text-center">
-                            <h4 class="card-title">${item.name}</h4>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">${item.company}</h6>
-                            <p class="card-caption text-body-secondary">${item.content}</p>
-                        </div>
-                    </div>
-                </div>`
+            <div class="card border-0">
+              <div class="card-body text-center">
+                <h4 class="card-title">${item.name}</h4>
+                <h6 class="card-subtitle mb-2 text-body-secondary">${item.company}</h6>
+                <p class="card-caption text-body-secondary">${item.content}</p>
+              </div>
+            </div>
+        </div>`
       );
     });
     slider();
@@ -286,9 +286,9 @@
       let name = key.replaceAll("_", " ");
       let content = `<div class="col-12 col-md-4 py-3" data-aos="flip-left">
                         <div class="card h-100">
-                            <div class="card-body">
-                                <h5 class="card-title text-capitalize">${name}</h5>
-                                <div class="card-tags" id="${key}">`;
+                          <div class="card-body">
+                              <h5 class="card-title text-capitalize">${name}</h5>
+                              <div class="card-tags" id="${key}">`;
       config.skills[key].forEach((v) => {
         content += `<span>${
           config.notExpertSkills.includes(v)
@@ -312,18 +312,17 @@
       config.experiences.map((item, index) => {
         c++;
         var className = c % 2 == 0 ? "timeline-inverted" : "timeline-unverted";
-        print += `            
-            <li class="${className}" data-aos="fade-up">
-                <div class="timeline-badge"><i class="bi bi-suitcase-lg-fill"></i></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
+        print += `<li class="${className}" data-aos="fade-up">
+                    <div class="timeline-badge"><i class="bi bi-suitcase-lg-fill"></i></div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
                         <h4 class="timeline-title">${item.role}</h4>
                         <span class="company text-body-tertiary">${item.company}</span>
                         <span class="time">${item.date}</span>
+                      </div>
+                      <div class="timeline-body"><p>${item.content}</p></div>
                     </div>
-                    <div class="timeline-body"><p>${item.content}</p></div>
-                </div>
-            </li>`;
+                  </li>`;
       });
     }
 
@@ -335,15 +334,15 @@
           c++;
           var className = c % 2 == 0 ? "timeline-inverted" : "timeline-unverted";
           print += `<li class="${className}" data-aos="fade-up">
-                            <div class="timeline-badge"><i class="bi bi-mortarboard-fill"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">${item.role}</h4>
-                                    <span class="company text-body-tertiary">${item.company}</span>
-                                </div>
-                                <div class="timeline-body"><p>${item.content}</p></div>
-                            </div>
-                        </li>`;
+                      <div class="timeline-badge"><i class="bi bi-mortarboard-fill"></i></div>
+                      <div class="timeline-panel">
+                        <div class="timeline-heading">
+                          <h4 class="timeline-title">${item.role}</h4>
+                          <span class="company text-body-tertiary">${item.company}</span>
+                        </div>
+                        <div class="timeline-body"><p>${item.content}</p></div>
+                      </div>
+                    </li>`;
         });
       }
     }
@@ -382,7 +381,7 @@
         }
       });
 
-      if ($(this).data("offset") != undefined) offset = $(this).data("offset");
+      if ($(this).data("offset")) offset = $(this).data("offset");
       $("html, body")
         .stop()
         .animate(
@@ -397,12 +396,24 @@
         );
     });
 
-    // set theme color
-    // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    //     $("body").attr("data-bs-theme", "dark")
-    // } else {
-    //     $("body").attr("data-bs-theme", "light")
-    // }
+    if (["dark", "light"].includes(localStorage.getItem("theme"))) {
+      $("body").attr("data-bs-theme", localStorage.getItem("theme"));
+    } else {
+      // // set theme color
+      // if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      //   $("body").attr("data-bs-theme", "dark");
+      // } else {
+      //   $("body").attr("data-bs-theme", "light");
+      // }
+    }
+
+    document.getElementById("themeSwitch").addEventListener("click", () => {
+      let mode = $("body").attr("data-bs-theme");
+      mode = mode == "dark" ? "light" : "dark";
+      $("body").attr("data-bs-theme", mode);
+
+      localStorage.setItem("theme", mode);
+    });
 
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
     const tooltipList = [...tooltipTriggerList].map(
@@ -413,5 +424,8 @@
   // Loading page
   $(window).on("load", function () {
     $(".loader").fadeOut("slow");
+    setTimeout(() => {
+      $(".loader").remove();
+    }, 800);
   });
 })();
