@@ -22,7 +22,7 @@
       "Backend Developer",
       "Photo Editor",
     ],
-    email: "mkk2001vnr@gmail.com",
+    email: "mkarthi.dev@gmail.com",
     mobile: "+91 97919 34388",
     current_location: "Chennai, India",
     preferred_location: "Chennai, Bangalore, Virudhunagar, Madurai, Coimbatore",
@@ -47,7 +47,7 @@
     },
     notExpertSkills: ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"],
     skills: {
-      programming_languages: ["HTML5", "CSS3", "JavaScript", "PHP", "TypeScript"],
+      programming_languages: ["HTML5", "CSS3", "JavaScript", "PHP", "Python", "TypeScript"],
       frameworks: ["Laravel", "Node.js", "Express.js", "Vue.js", "React.js"],
       libraries: ["Bootstrap", "Tailwind CSS", "jQuery", "Vuex", "Redux"],
       database: ["MySQL", "PostgreSQL"],
