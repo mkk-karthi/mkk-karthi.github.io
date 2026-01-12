@@ -74,10 +74,10 @@ class PortfolioApplication {
     // ===== SEO META DATA =====
     this.metaData = {
       title: "Karthikeyan Portfolio",
-      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js`,
+      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js | Python`,
       keywords:
-        "portfolio, profile, mkk, mkk hitz, mkk profile, karthikeyan, web Developer, Developer",
-      author: "MKK",
+        "Karthikeyan, portfolio, mkk, Laravel, MySQL, Vue.js, React.js, Node.js, Express.js, Python, Full Stack Developer, Web Developer",
+      author: "Karthikeyan M",
     };
 
     // ===== SKILL EXPERTISE LEVELS =====
