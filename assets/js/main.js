@@ -74,10 +74,10 @@ class PortfolioApplication {
     // ===== SEO META DATA =====
     this.metaData = {
       title: "Karthikeyan Portfolio",
-      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js`,
+      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js | Python`,
       keywords:
-        "portfolio, profile, mkk, mkk hitz, mkk profile, karthikeyan, web Developer, Developer",
-      author: "MKK",
+        "Karthikeyan, portfolio, mkk, Laravel, MySQL, Vue.js, React.js, Node.js, Express.js, Python, Full Stack Developer, Web Developer",
+      author: "Karthikeyan M",
     };
 
     // ===== SKILL EXPERTISE LEVELS =====
@@ -469,7 +469,7 @@ class PortfolioApplication {
         <div class="swiper-slide">
           <div class="card border-0">
             <div class="card-body text-center">
-              <h4 class="card-title">${project.name}</h4>
+              <h5 class="card-title">${project.name}</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">${project.company}</h6>
               <p class="card-caption text-body-secondary">${project.content}</p>
             </div>
@@ -545,7 +545,7 @@ class PortfolioApplication {
           <div><h3>Education</h3></div>
         </li>
       `);
-      $timeline.append($("<br>")).append($eduHeading);
+      $timeline.append($("<li></li>")).append($eduHeading);
 
       this.education.forEach((education) => {
         itemCount++;

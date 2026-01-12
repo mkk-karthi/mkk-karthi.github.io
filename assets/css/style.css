@@ -245,7 +245,7 @@ a {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 
-  & h5 {
+  & .card-title {
     border-radius: 0 10px 0 10px;
     background-color: rgb(var(--theme-primary));
     color: var(--bs-light);
