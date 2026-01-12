@@ -1,17 +1,32 @@
 (function () {
   "use strict";
 
-  const breakup = 103; // breakub days
-  var df = new Date("2021-07-15"); // start of career
-  var dt = new Date("2025-07-07");
-  dt.setDate(dt.getDate() - breakup);
-  var startMonth = df.getFullYear() * 12 + df.getMonth();
-  var endMonth = dt.getFullYear() * 12 + dt.getMonth();
-  var monthInterval = endMonth - startMonth;
+  function calculateExperienceYears(jobs) {
+    const today = new Date();
+    jobs = jobs
+      .map((j) => [new Date(j.start), new Date(j.end || today)])
+      .sort((a, b) => a[0] - b[0]);
 
-  var years = Math.floor(monthInterval / 12);
-  var months = monthInterval % 12;
-  var experience_year = years + (months ? "+" : "");
+    let total = 0,
+      end = null;
+
+    for (const [s, e] of jobs) {
+      if (!end || s > end) total += e - s;
+      else if (e > end) total += e - end;
+      end = !end || e > end ? e : end;
+    }
+
+    return Math.floor(total / (1000 * 60 * 60 * 24 * 365.25));
+  }
+
+  const jobs = [
+    { start: "2021-07-15", end: "2022-07-15" },
+    { start: "2022-08-01", end: "2024-10-30" },
+    { start: "2025-02-10", end: "2025-07-07" },
+    { start: "2025-09-02", end: null },
+  ];
+
+  const experience = calculateExperienceYears(jobs);
 
   const config = {
     name: "Karthikeyan M",
@@ -25,22 +40,15 @@
     email: "mkarthi.dev@gmail.com",
     mobile: "+91 97919 34388",
     current_location: "Chennai, India",
-    preferred_location: "Chennai, Bangalore, Virudhunagar, Madurai, Coimbatore",
-    address: "Virudhunagar, Tamilnadu, INDIA",
-    address_link: "https://maps.app.goo.gl/SfCGCmK9ph428SrC8",
-    gender: "Male",
-    dob: "15/07/2001",
-    experience: experience_year + " Years",
+    address: "Virudhunagar, Tamilnadu,+ Years",
     languages: "Tamil, English",
     linkedin: "https://www.linkedin.com/in/karthikeyan-developer-mkk",
     github: "https://github.com/mkk-karthi",
     cv: "assets/Karthikeyan-M-Resume.pdf",
-    description:
-      "With 3+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.",
+    description: `With ${experience}+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.`,
     MetaData: {
       title: "Karthikeyan Portfolio",
-      description:
-        "Full Stack Developer | 3+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js",
+      description: `Full Stack Developer | ${experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js`,
       keywords:
         "portfolio, profile, mkk, mkk hitz, mkk profile, karthikeyan, web Developer, Developer",
       author: "MKK",
@@ -252,7 +260,6 @@
     $("#email").text(config.email);
     $("#mobile").text(config.mobile);
     $("#current_location").text(config.current_location);
-    $("#preferred_location").text(config.preferred_location);
     $("#languages").text(config.languages);
     $("#experience").text(config.experience);
 
@@ -352,6 +359,32 @@
     }
   };
 
+  const setThemeSwitch = () => {
+    if (["dark", "light"].includes(localStorage.getItem("theme"))) {
+      $("body").attr("data-bs-theme", localStorage.getItem("theme"));
+    } else {
+      // // set theme color
+      // if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      //   $("body").attr("data-bs-theme", "dark");
+      // } else {
+      //   $("body").attr("data-bs-theme", "light");
+      // }
+    }
+
+    document.getElementById("themeSwitch").addEventListener("click", () => {
+      let mode = $("body").attr("data-bs-theme");
+      mode = mode == "dark" ? "light" : "dark";
+      $("body").attr("data-bs-theme", mode);
+
+      localStorage.setItem("theme", mode);
+    });
+  };
+
+  const setTooltips = () => {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+  };
+
   $(document).ready(function () {
     fullHeight();
     typeEffect();
@@ -396,29 +429,11 @@
         );
     });
 
-    if (["dark", "light"].includes(localStorage.getItem("theme"))) {
-      $("body").attr("data-bs-theme", localStorage.getItem("theme"));
-    } else {
-      // // set theme color
-      // if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      //   $("body").attr("data-bs-theme", "dark");
-      // } else {
-      //   $("body").attr("data-bs-theme", "light");
-      // }
-    }
+    setThemeSwitch();
+    setTooltips();
 
-    document.getElementById("themeSwitch").addEventListener("click", () => {
-      let mode = $("body").attr("data-bs-theme");
-      mode = mode == "dark" ? "light" : "dark";
-      $("body").attr("data-bs-theme", mode);
-
-      localStorage.setItem("theme", mode);
-    });
-
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(
-      (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-    );
+    // addcopyright year
+    $("#rights-year").text(new Date().getFullYear());
   });
 
   // Loading page
