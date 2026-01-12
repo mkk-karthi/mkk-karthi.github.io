@@ -1,69 +1,101 @@
-(function () {
-  "use strict";
+/**
+ * Portfolio Profile Application - Single Class Architecture
+ *
+ * A comprehensive portfolio management system with all functionality
+ * encapsulated in a single class for simplicity and ease of understanding.
+ *
+ * Features:
+ * - Experience calculation with overlapping period handling
+ * - Portfolio data configuration and management
+ * - Layout and viewport management
+ * - Animation and scroll effects
+ * - Theme switching with persistence
+ * - DOM content rendering
+ * - Navigation and smooth scrolling
+ * - Application initialization and orchestration
+ */
 
-  function calculateExperienceYears(jobs) {
-    const today = new Date();
-    jobs = jobs
-      .map((j) => [new Date(j.start), new Date(j.end || today)])
-      .sort((a, b) => a[0] - b[0]);
+"use strict";
 
-    let total = 0,
-      end = null;
+/**
+ * Main Portfolio Application Class
+ *
+ * A unified class that handles all portfolio application functionality:
+ * configuration, rendering, animations, navigation, and theme management.
+ * Single Responsibility principle applied at a higher level - one class
+ * handles all portfolio-related operations.
+ */
+class PortfolioApplication {
+  // ========================================
+  // CONSTRUCTOR & INITIALIZATION
+  // ========================================
 
-    for (const [s, e] of jobs) {
-      if (!end || s > end) total += e - s;
-      else if (e > end) total += e - end;
-      end = !end || e > end ? e : end;
-    }
+  /**
+   * Constructor - Initialize all portfolio configuration and data
+   */
+  constructor() {
+    // ===== PERSONAL INFORMATION =====
+    this.name = "Karthikeyan M";
+    this.email = "mkarthi.dev@gmail.com";
+    this.mobile = "+91 97919 34388";
+    this.currentLocation = "Chennai, India";
+    this.address = "Virudhunagar, Tamil Nadu";
+    this.languages = "Tamil, English";
 
-    return Math.floor(total / (1000 * 60 * 60 * 24 * 365.25));
-  }
+    // ===== SOCIAL PROFILES =====
+    this.linkedin = "https://www.linkedin.com/in/karthikeyan-developer-mkk";
+    this.github = "https://github.com/mkk-karthi";
+    this.cv = "assets/Karthikeyan-M-Resume.pdf";
 
-  const jobs = [
-    { start: "2021-07-15", end: "2022-07-15" },
-    { start: "2022-08-01", end: "2024-10-30" },
-    { start: "2025-02-10", end: "2025-07-07" },
-    { start: "2025-09-02", end: null },
-  ];
-
-  const experience = calculateExperienceYears(jobs);
-
-  const config = {
-    name: "Karthikeyan M",
-    tags: [
+    // ===== PROFESSIONAL TAGS =====
+    this.tags = [
       "Web App Developer",
       "Full Stack Developer",
       "Frontend Developer",
       "Backend Developer",
       "Photo Editor",
-    ],
-    email: "mkarthi.dev@gmail.com",
-    mobile: "+91 97919 34388",
-    current_location: "Chennai, India",
-    address: "Virudhunagar, Tamilnadu,+ Years",
-    languages: "Tamil, English",
-    linkedin: "https://www.linkedin.com/in/karthikeyan-developer-mkk",
-    github: "https://github.com/mkk-karthi",
-    cv: "assets/Karthikeyan-M-Resume.pdf",
-    description: `With ${experience}+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in Mysql and Postgresql, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.`,
-    MetaData: {
+    ];
+
+    // ===== EXPERIENCE CALCULATION =====
+    // Job history with employment periods
+    this.jobs = [
+      { start: "2021-07-15", end: "2022-07-15" },
+      { start: "2022-08-01", end: "2024-10-30" },
+      { start: "2025-02-10", end: "2025-07-07" },
+      { start: "2025-09-02", end: null }, // Current job (null = no end date)
+    ];
+
+    // Calculate total years of experience
+    this.experience = this.calculateExperienceYears(this.jobs);
+
+    // ===== PROFESSIONAL DESCRIPTION =====
+    this.description = `With ${this.experience}+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in MySQL and PostgreSQL, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.`;
+
+    // ===== SEO META DATA =====
+    this.metaData = {
       title: "Karthikeyan Portfolio",
-      description: `Full Stack Developer | ${experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js`,
+      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js`,
       keywords:
         "portfolio, profile, mkk, mkk hitz, mkk profile, karthikeyan, web Developer, Developer",
       author: "MKK",
-    },
-    notExpertSkills: ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"],
-    skills: {
+    };
+
+    // ===== SKILL EXPERTISE LEVELS =====
+    // Skills listed here are shown with half-filled stars (partial expertise)
+    this.notExpertSkills = ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"];
+
+    // ===== TECHNICAL SKILLS =====
+    this.skills = {
       programming_languages: ["HTML5", "CSS3", "JavaScript", "PHP", "Python", "TypeScript"],
       frameworks: ["Laravel", "Node.js", "Express.js", "Vue.js", "React.js"],
       libraries: ["Bootstrap", "Tailwind CSS", "jQuery", "Vuex", "Redux"],
       database: ["MySQL", "PostgreSQL"],
       tools: ["Git", "VScode", "Postman", "npm", "Composer", "Docker", "OWASP"],
-      // "other": ["Shopify", "Wordpress", "Photo Editing", "Video Editing", "OS Installation"],
       languages_known: ["Tamil", "English"],
-    },
-    experiences: [
+    };
+
+    // ===== WORK EXPERIENCE =====
+    this.experiences = [
       {
         role: "Senior Software Engineer",
         company: "ISYS Technologies",
@@ -98,8 +130,10 @@
         content:
           "From May 2019 to Jun 2021, I had the privilege of working in a part-time job for a duration of three years. During my time there, I was involved in various responsibilities, including printing, computer operator, and software installation.",
       },
-    ],
-    education: [
+    ];
+
+    // ===== EDUCATION =====
+    this.education = [
       {
         role: "Bachelors Degree",
         company: "VHNSN College (2018 - 2021)",
@@ -112,8 +146,10 @@
         content:
           "In 2018, I attended KVS HSS, where I studied in the Tamil medium and appeared for the HSC board exams. I am proud to have achieved a respectable score of 70.25%, reflecting my dedication and hard work throughout my academic journey.",
       },
-    ],
-    projects: [
+    ];
+
+    // ===== FEATURED PROJECTS =====
+    this.projects = [
       {
         name: "Create Express Project",
         company: "NPM",
@@ -142,7 +178,7 @@
         name: "E-commerce (B2B)",
         company: "Ebix Pro",
         content:
-          "Developed a responsive Business to Business e-commerce platform using Laravel and vue.js, allowing Multi store register, Manage stores and users to browse products, add them to the cart, and complete the checkout process.",
+          "Developed a responsive Business to Business e-commerce platform using Laravel and Vue.js, allowing Multi store register, Manage stores and users to browse products, add them to the cart, and complete the checkout process.",
         link: "",
         github: "",
       },
@@ -154,293 +190,501 @@
         link: "",
         github: "",
       },
-    ],
-    achievements: [],
-  };
+    ];
 
-  var fullHeight = function () {
-    $(".js-fullheight").css("height", $(window).height());
-    $(window).resize(function () {
+    // ===== ACHIEVEMENTS =====
+    this.achievements = [];
+  }
+
+  // ========================================
+  // UTILITY METHODS - EXPERIENCE CALCULATION
+  // ========================================
+
+  /**
+   * Calculate total years of experience from an array of job entries
+   * Handles overlapping periods correctly by sorting chronologically
+   * and summing non-overlapping durations
+   *
+   * @param {Array<Object>} jobs - Array of job objects with start/end dates
+   * @param {string} jobs[].start - Job start date (ISO format)
+   * @param {string} jobs[].end - Job end date (ISO format) or null for current job
+   * @returns {number} Total years of experience
+   */
+  calculateExperienceYears(jobs) {
+    const today = new Date();
+
+    // Normalize all jobs to date arrays and sort chronologically
+    const normalizedJobs = jobs
+      .map((job) => [new Date(job.start), new Date(job.end || today)])
+      .sort((a, b) => a[0] - b[0]);
+
+    let total = 0;
+    let end = null;
+
+    for (const [start, jobEnd] of normalizedJobs) {
+      if (!end || start > end) {
+        // No overlap: add the full duration
+        total += jobEnd - start;
+      } else if (jobEnd > end) {
+        // Partial overlap: add only the non-overlapping portion
+        total += jobEnd - end;
+      }
+      // Update the end boundary
+      end = !end || jobEnd > end ? jobEnd : end;
+    }
+
+    // Convert milliseconds to years
+    return Math.floor(total / (1000 * 60 * 60 * 24 * 365.25));
+  }
+
+  // ========================================
+  // LAYOUT METHODS
+  // ========================================
+
+  /**
+   * Set full height for viewport-filling elements
+   * Updates on window resize for responsive behavior
+   */
+  setFullHeight() {
+    const updateHeight = () => {
       $(".js-fullheight").css("height", $(window).height());
-    });
-  };
+    };
 
-  var goToTop = function () {
+    updateHeight();
+    $(window).resize(updateHeight);
+  }
+
+  /**
+   * Initialize scroll-to-top button functionality
+   * Shows button when user scrolls past 200px, hides otherwise
+   */
+  initScrollToTop() {
+    // Click handler for scroll to top button
     $(".js-gotop").on("click", function (event) {
       event.preventDefault();
-
-      $("html, body").animate(
-        {
-          scrollTop: $("html").offset().top,
-        },
-        500,
-        "easeInOutExpo"
-      );
-
+      $("html, body").animate({ scrollTop: 0 }, 500, "easeInOutExpo");
       return false;
     });
 
+    // Show/hide scroll to top button based on scroll position
     $(window).scroll(function () {
-      var $win = $(window);
-      if ($win.scrollTop() > 200) {
+      if ($(window).scrollTop() > 200) {
         $(".js-top").addClass("active");
       } else {
         $(".js-top").removeClass("active");
       }
     });
-  };
+  }
 
-  // type effect
-  var typeEffect = function () {
-    const typed = $(".typed");
-    if (typed.length) {
+  // ========================================
+  // ANIMATION METHODS
+  // ========================================
+
+  /**
+   * Initialize typing effect for skill/tag animations
+   * Uses the Typed.js library for character-by-character animation
+   */
+  initTypingEffect() {
+    const $typed = $(".typed");
+    if ($typed.length) {
       new Typed(".typed", {
-        strings: config.tags,
+        strings: this.tags,
         loop: true,
         typeSpeed: 50,
         backSpeed: 50,
         backDelay: 1000,
       });
     }
-  };
+  }
 
-  // slider
-  var fetchSlider = function () {
-    config.projects.map((item) => {
-      $("#project-content").append(
-        `<div class="swiper-slide">
-            <div class="card border-0">
-              <div class="card-body text-center">
-                <h4 class="card-title">${item.name}</h4>
-                <h6 class="card-subtitle mb-2 text-body-secondary">${item.company}</h6>
-                <p class="card-caption text-body-secondary">${item.content}</p>
-              </div>
-            </div>
-        </div>`
-      );
-    });
-    slider();
-  };
-
-  var slider = function () {
-    new Swiper(".slider", {
-      speed: 600,
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      slidesPerView: "auto",
-      pagination: {
-        el: ".swiper-pagination",
-        type: "bullets",
-        clickable: true,
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 20,
-        },
-        720: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        1200: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-      },
-    });
-  };
-
-  var fetchDatas = function () {
-    $("#gmap").hide();
-    $("#name").text(config.name);
-    $("#description").text(config.description);
-    $("#email").text(config.email);
-    $("#mobile").text(config.mobile);
-    $("#current_location").text(config.current_location);
-    $("#languages").text(config.languages);
-    $("#experience").text(config.experience);
-
-    $("title").text(config.MetaData.title);
-    $("meta[name=description]").attr("content", config.MetaData.description);
-    $("meta[name=keywords]").attr("content", config.MetaData.keywords);
-    $("meta[name=author]").attr("content", config.MetaData.author);
-
-    $("meta[property='og:title']").attr("content", config.MetaData.title);
-    $("meta[property='og:description']").attr("content", config.MetaData.description);
-    $("meta[property='og:site_name']").attr("content", config.MetaData.title);
-
-    $("#email").attr("href", "mailTo:" + config.email);
-    $("#mobile").attr("href", "tel:" + config.mobile);
-
-    $("#footer_location").text("Profile");
-    $("#footer_mobile").text(config.mobile);
-    $("#footer_email").text(config.email);
-    $("#footer_email").attr("href", "mailTo:" + config.email);
-    $("#footer_mobile").attr("href", "tel:" + config.mobile);
-    $(".navbar-social #linkedin").attr("href", config.linkedin);
-    $(".navbar-social #github").attr("href", config.github);
-    $(".navbar-social #cv-download").attr("href", config.cv);
-
-    $("#profile-content #linkedin").attr("href", config.linkedin);
-    $("#profile-content #github").attr("href", config.github);
-    $("#profile-content #cv-download").attr("href", config.cv);
-
-    // fetch skills
-    for (var key of Object.keys(config.skills)) {
-      let name = key.replaceAll("_", " ");
-      let content = `<div class="col-12 col-md-4 py-3" data-aos="flip-left">
-                        <div class="card h-100">
-                          <div class="card-body">
-                              <h5 class="card-title text-capitalize">${name}</h5>
-                              <div class="card-tags" id="${key}">`;
-      config.skills[key].forEach((v) => {
-        content += `<span>${
-          config.notExpertSkills.includes(v)
-            ? '<i class="bi bi-star-half" aria-hidden="true"></i>'
-            : '<i class="bi bi-star-fill" aria-hidden="true"></i>'
-        }${v}</span>`;
-      });
-      content += `</div></div></div></div>`;
-      $(`#skills-content`).append(content);
-    }
-
-    fetchSlider();
-    resumeFetch();
-  };
-
-  var resumeFetch = function () {
-    var print = "";
-    var c = 0;
-    if (config.experiences.length > 0) {
-      print += `<li class="timeline-heading center" data-aos="fade-up"><div><h3>Work Experience</h3></div></li>`;
-      config.experiences.map((item, index) => {
-        c++;
-        var className = c % 2 == 0 ? "timeline-inverted" : "timeline-unverted";
-        print += `<li class="${className}" data-aos="fade-up">
-                    <div class="timeline-badge"><i class="bi bi-suitcase-lg-fill"></i></div>
-                    <div class="timeline-panel">
-                      <div class="timeline-heading">
-                        <h4 class="timeline-title">${item.role}</h4>
-                        <span class="company text-body-tertiary">${item.company}</span>
-                        <span class="time">${item.date}</span>
-                      </div>
-                      <div class="timeline-body"><p>${item.content}</p></div>
-                    </div>
-                  </li>`;
-      });
-    }
-
-    if (config.experiences.length == c) {
-      if (config.education.length > 0) {
-        print += `<br> <li class="timeline-heading center" data-aos="fade-up"><div><h3>Education</h3></div></li>`;
-
-        config.education.map((item, index) => {
-          c++;
-          var className = c % 2 == 0 ? "timeline-inverted" : "timeline-unverted";
-          print += `<li class="${className}" data-aos="fade-up">
-                      <div class="timeline-badge"><i class="bi bi-mortarboard-fill"></i></div>
-                      <div class="timeline-panel">
-                        <div class="timeline-heading">
-                          <h4 class="timeline-title">${item.role}</h4>
-                          <span class="company text-body-tertiary">${item.company}</span>
-                        </div>
-                        <div class="timeline-body"><p>${item.content}</p></div>
-                      </div>
-                    </li>`;
-        });
-      }
-    }
-    if (print && config.experiences.length + config.education.length == c) {
-      print += `<li class="timeline-unverted"><div class="timeline-badge" style="background-color: #e6e6e6;"></div></li>`;
-      $("#resume-timeline").append(print);
-    }
-  };
-
-  const setThemeSwitch = () => {
-    if (["dark", "light"].includes(localStorage.getItem("theme"))) {
-      $("body").attr("data-bs-theme", localStorage.getItem("theme"));
-    } else {
-      // // set theme color
-      // if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      //   $("body").attr("data-bs-theme", "dark");
-      // } else {
-      //   $("body").attr("data-bs-theme", "light");
-      // }
-    }
-
-    document.getElementById("themeSwitch").addEventListener("click", () => {
-      let mode = $("body").attr("data-bs-theme");
-      mode = mode == "dark" ? "light" : "dark";
-      $("body").attr("data-bs-theme", mode);
-
-      localStorage.setItem("theme", mode);
-    });
-  };
-
-  const setTooltips = () => {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
-  };
-
-  $(document).ready(function () {
-    fullHeight();
-    typeEffect();
-    goToTop();
-    fetchDatas();
-
+  /**
+   * Initialize AOS (Animate On Scroll) library
+   * Provides scroll-triggered animations for page elements
+   */
+  initScrollAnimations() {
     AOS.init({
       duration: 1000,
       easing: "ease-in-out",
       once: false,
       mirror: true,
     });
+  }
 
-    // set footer margin
-    $("#contact").css("margin-bottom", $("#nav-bar").height());
+  /**
+   * Initialize Bootstrap tooltips
+   * Activates all elements with data-bs-toggle="tooltip"
+   */
+  initTooltips() {
+    const tooltipElements = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipElements].forEach((el) => new bootstrap.Tooltip(el));
+  }
 
-    $("#nav-bar a, #profile a[href='#contact']").on("click", function (e) {
+  // ========================================
+  // THEME METHODS
+  // ========================================
+
+  /**
+   * Initialize theme switching functionality
+   * Loads saved theme preference from localStorage
+   * Persists user's theme choice for future visits
+   */
+  initThemeSwitch() {
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (["dark", "light"].includes(savedTheme)) {
+      $("body").attr("data-bs-theme", savedTheme);
+    }
+
+    // Handle theme switch button click
+    document.getElementById("themeSwitch").addEventListener("click", () => {
+      const currentMode = $("body").attr("data-bs-theme");
+      const newMode = currentMode === "dark" ? "light" : "dark";
+
+      $("body").attr("data-bs-theme", newMode);
+      localStorage.setItem("theme", newMode);
+    });
+  }
+
+  // ========================================
+  // DOM RENDERING METHODS
+  // ========================================
+
+  /**
+   * Populate profile information into the DOM
+   * Sets name, description, contact info, and meta tags
+   */
+  renderProfileInfo() {
+    $("#name").text(this.name);
+    $("#description").text(this.description);
+    $("#email").text(this.email);
+    $("#mobile").text(this.mobile);
+    $("#current_location").text(this.currentLocation);
+    $("#languages").text(this.languages);
+    $("#experience").text(this.experience);
+
+    // Update meta tags for SEO
+    this.updateMetaTags();
+
+    // Set email and phone links
+    $("#email").attr("href", `mailTo:${this.email}`);
+    $("#mobile").attr("href", `tel:${this.mobile}`);
+
+    // Update footer information
+    this.updateFooterInfo();
+
+    // Update all social media links
+    this.updateSocialLinks();
+  }
+
+  /**
+   * Update HTML meta tags for SEO optimization
+   * Sets title, description, keywords, and Open Graph tags
+   */
+  updateMetaTags() {
+    $("title").text(this.metaData.title);
+    $("meta[name=description]").attr("content", this.metaData.description);
+    $("meta[name=keywords]").attr("content", this.metaData.keywords);
+    $("meta[name=author]").attr("content", this.metaData.author);
+
+    // Open Graph tags for social sharing
+    $("meta[property='og:title']").attr("content", this.metaData.title);
+    $("meta[property='og:description']").attr("content", this.metaData.description);
+    $("meta[property='og:site_name']").attr("content", this.metaData.title);
+  }
+
+  /**
+   * Update footer section with contact information
+   */
+  updateFooterInfo() {
+    $("#footer_location").text("Profile");
+    $("#footer_mobile").text(this.mobile);
+    $("#footer_email").text(this.email);
+    $("#footer_email").attr("href", `mailTo:${this.email}`);
+    $("#footer_mobile").attr("href", `tel:${this.mobile}`);
+  }
+
+  /**
+   * Update all social media links in navigation and profile sections
+   */
+  updateSocialLinks() {
+    // Navbar social links
+    $(".navbar-social #linkedin").attr("href", this.linkedin);
+    $(".navbar-social #github").attr("href", this.github);
+    $(".navbar-social #cv-download").attr("href", this.cv);
+
+    // Profile section social links
+    $("#profile-content #linkedin").attr("href", this.linkedin);
+    $("#profile-content #github").attr("href", this.github);
+    $("#profile-content #cv-download").attr("href", this.cv);
+  }
+
+  /**
+   * Render skills section with categorized skills and expertise indicators
+   * Full stars indicate expert level, half stars indicate partial expertise
+   */
+  renderSkills() {
+    const $skillsContent = $("#skills-content");
+
+    for (const [key, skillArray] of Object.entries(this.skills)) {
+      const skillName = key.replaceAll("_", " ");
+
+      // Build skill tags
+      let skillTags = skillArray
+        .map((skill) => {
+          const isExpert = !this.notExpertSkills.includes(skill);
+          const starIcon = isExpert
+            ? '<i class="bi bi-star-fill" aria-hidden="true"></i>'
+            : '<i class="bi bi-star-half" aria-hidden="true"></i>';
+          return `<span>${starIcon}${skill}</span>`;
+        })
+        .join("");
+
+      // Create skill card
+      const $skillCard = $(`
+        <div class="col-12 col-md-4 py-3" data-aos="flip-left">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title text-capitalize">${skillName}</h5>
+              <div class="card-tags" id="${key}">
+                ${skillTags}
+              </div>
+            </div>
+          </div>
+        </div>
+      `);
+
+      $skillsContent.append($skillCard);
+    }
+  }
+
+  /**
+   * Render project slider with Swiper.js carousel
+   * Displays projects with responsive breakpoints
+   */
+  renderProjects() {
+    const $projectContent = $("#project-content");
+
+    this.projects.forEach((project) => {
+      const $projectSlide = $(`
+        <div class="swiper-slide">
+          <div class="card border-0">
+            <div class="card-body text-center">
+              <h4 class="card-title">${project.name}</h4>
+              <h6 class="card-subtitle mb-2 text-body-secondary">${project.company}</h6>
+              <p class="card-caption text-body-secondary">${project.content}</p>
+            </div>
+          </div>
+        </div>
+      `);
+      $projectContent.append($projectSlide);
+    });
+
+    this.initSlider();
+  }
+
+  /**
+   * Initialize Swiper.js slider with responsive breakpoints
+   * Adapts slide count based on screen size
+   */
+  initSlider() {
+    new Swiper(".slider", {
+      speed: 600,
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      slidesPerView: "auto",
+      pagination: { el: ".swiper-pagination", type: "bullets", clickable: true },
+      breakpoints: {
+        320: { slidesPerView: 1, spaceBetween: 20 },
+        720: { slidesPerView: 2, spaceBetween: 20 },
+        1200: { slidesPerView: 2, spaceBetween: 20 },
+      },
+    });
+  }
+
+  /**
+   * Render experience and education timeline
+   * Displays alternating timeline items with alternating left/right layout
+   */
+  renderTimeline() {
+    const $timeline = $("#resume-timeline");
+    let itemCount = 0;
+
+    // ===== WORK EXPERIENCE SECTION =====
+    if (this.experiences.length > 0) {
+      const $expHeading = $(`
+        <li class="timeline-heading center" data-aos="fade-up">
+          <div><h3>Work Experience</h3></div>
+        </li>
+      `);
+      $timeline.append($expHeading);
+
+      this.experiences.forEach((experience) => {
+        itemCount++;
+        const className = itemCount % 2 === 0 ? "timeline-inverted" : "timeline-unverted";
+        const $expItem = $(`
+          <li class="${className}" data-aos="fade-up">
+            <div class="timeline-badge"><i class="bi bi-suitcase-lg-fill"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">${experience.role}</h4>
+                <span class="company text-body-tertiary">${experience.company}</span>
+                <span class="time">${experience.date}</span>
+              </div>
+              <div class="timeline-body"><p>${experience.content}</p></div>
+            </div>
+          </li>
+        `);
+        $timeline.append($expItem);
+      });
+    }
+
+    // ===== EDUCATION SECTION =====
+    if (this.education.length > 0) {
+      const $eduHeading = $(`
+        <li class="timeline-heading center" data-aos="fade-up">
+          <div><h3>Education</h3></div>
+        </li>
+      `);
+      $timeline.append($("<br>")).append($eduHeading);
+
+      this.education.forEach((education) => {
+        itemCount++;
+        const className = itemCount % 2 === 0 ? "timeline-inverted" : "timeline-unverted";
+        const $eduItem = $(`
+          <li class="${className}" data-aos="fade-up">
+            <div class="timeline-badge"><i class="bi bi-mortarboard-fill"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">${education.role}</h4>
+                <span class="company text-body-tertiary">${education.company}</span>
+              </div>
+              <div class="timeline-body"><p>${education.content}</p></div>
+            </div>
+          </li>
+        `);
+        $timeline.append($eduItem);
+      });
+
+      // Add timeline end marker
+      const $endMarker = $(`
+        <li class="timeline-unverted">
+          <div class="timeline-badge" style="background-color: #e6e6e6;"></div>
+        </li>
+      `);
+      $timeline.append($endMarker);
+    }
+  }
+
+  /**
+   * Render all portfolio content sections
+   * Central method to render complete portfolio
+   */
+  renderAll() {
+    this.renderProfileInfo();
+    this.renderSkills();
+    this.renderProjects();
+    this.renderTimeline();
+  }
+
+  // ========================================
+  // NAVIGATION METHODS
+  // ========================================
+
+  /**
+   * Initialize navigation click handlers
+   * Implements smooth scrolling with offset support
+   * Updates active navigation state based on current section
+   */
+  initTabNavigation() {
+    $("#nav-bar a, #profile a[href='#contact']").on("click", (e) => {
       e.preventDefault();
-      var offset = 50;
-      var target = this.hash;
+      let offset = 50;
+      const target = e.currentTarget.hash;
 
+      // Update active navigation state
       $("#nav-bar .card a").each(function () {
-        if (target == this.hash) {
+        if (target === this.hash) {
           $(this).addClass("active");
         } else {
           $(this).removeClass("active");
         }
       });
 
-      if ($(this).data("offset")) offset = $(this).data("offset");
+      // Allow custom offset via data attribute
+      if ($(e.currentTarget).data("offset")) {
+        offset = $(e.currentTarget).data("offset");
+      }
+
+      // Smooth scroll to target section
       $("html, body")
         .stop()
-        .animate(
-          {
-            scrollTop: target ? $(target).offset().top - offset : 0,
-          },
-          500,
-          "swing",
-          function () {
-            // window.location.hash = target;
-          }
-        );
+        .animate({ scrollTop: target ? $(target).offset().top - offset : 0 }, 500, "swing");
+    });
+  }
+
+  // ========================================
+  // APPLICATION INITIALIZATION
+  // ========================================
+
+  /**
+   * Initialize all application features and components
+   * Called when DOM is ready
+   *
+   * Initialization Flow:
+   * 1. Layout initialization and viewport setup
+   * 2. Animation and effects setup
+   * 3. Theme management setup
+   * 4. Content rendering
+   * 5. Navigation initialization
+   * 6. Final DOM adjustments
+   */
+  init() {
+    $(document).ready(() => {
+      // ===== LAYOUT INITIALIZATION =====
+      this.setFullHeight();
+      this.initScrollToTop();
+
+      // ===== ANIMATION INITIALIZATION =====
+      this.initTypingEffect();
+      this.initScrollAnimations();
+      this.initTooltips();
+
+      // ===== THEME INITIALIZATION =====
+      this.initThemeSwitch();
+
+      // ===== CONTENT RENDERING =====
+      this.renderAll();
+
+      // ===== NAVIGATION INITIALIZATION =====
+      this.initTabNavigation();
+
+      // ===== FINAL ADJUSTMENTS =====
+      // Set footer margin to account for fixed navbar height
+      $("#contact").css("margin-bottom", $("#nav-bar").height());
+
+      // Set current copyright year
+      $("#rights-year").text(new Date().getFullYear());
     });
 
-    setThemeSwitch();
-    setTooltips();
+    // Handle page load animations
+    this.handlePageLoad();
+  }
 
-    // addcopyright year
-    $("#rights-year").text(new Date().getFullYear());
-  });
+  /**
+   * Handle initial page load animations
+   * Fades out loader after page content is ready
+   */
+  handlePageLoad() {
+    $(window).on("load", () => {
+      $(".loader").fadeOut("slow");
+      setTimeout(() => {
+        $(".loader").remove();
+      }, 800);
+    });
+  }
+}
 
-  // Loading page
-  $(window).on("load", function () {
-    $(".loader").fadeOut("slow");
-    setTimeout(() => {
-      $(".loader").remove();
-    }, 800);
-  });
-})();
+// ===== APPLICATION ENTRY POINT =====
+// Initialize and run the portfolio application
+const app = new PortfolioApplication();
+app.init();
