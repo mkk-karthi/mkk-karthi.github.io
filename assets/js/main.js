@@ -69,28 +69,28 @@ class PortfolioApplication {
     this.experience = this.calculateExperienceYears(this.jobs);
 
     // ===== PROFESSIONAL DESCRIPTION =====
-    this.description = `With ${this.experience}+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Laravel, Node.js) technologies. Skilled in MySQL and PostgreSQL, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.`;
+    this.description = `With ${this.experience}+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Python, Laravel, Node.js) technologies. Skilled in MySQL and PostgreSQL, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.`;
 
     // ===== SEO META DATA =====
     this.metaData = {
       title: "Karthikeyan Portfolio",
-      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Express.js | Python`,
+      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Python`,
       keywords:
-        "Karthikeyan, portfolio, mkk, Laravel, MySQL, Vue.js, React.js, Node.js, Express.js, Python, Full Stack Developer, Web Developer",
+        "Karthikeyan, Portfolio, MKK, Laravel, MySQL, Vue.js, React.js, Node.js, PHP, Python, Full Stack Developer, Web Developer",
       author: "Karthikeyan M",
     };
 
     // ===== SKILL EXPERTISE LEVELS =====
     // Skills listed here are shown with half-filled stars (partial expertise)
-    this.notExpertSkills = ["Angular", "Next.js", "CodeIgniter", "MongoDB", "Wordpress"];
+    this.notExpertSkills = ["Angular", "Next.js", "CodeIgniter", "Django", "Wordpress"];
 
     // ===== TECHNICAL SKILLS =====
     this.skills = {
       programming_languages: ["HTML5", "CSS3", "JavaScript", "PHP", "Python", "TypeScript"],
-      frameworks: ["Laravel", "Node.js", "Express.js", "Vue.js", "React.js"],
+      frameworks: ["Laravel", "Express.js", "Vue.js", "React.js", "FastAPI", "Django"],
       libraries: ["Bootstrap", "Tailwind CSS", "jQuery", "Vuex", "Redux"],
       database: ["MySQL", "PostgreSQL"],
-      tools: ["Git", "VScode", "Postman", "npm", "Composer", "Docker", "OWASP"],
+      tools: ["Git", "VScode", "Postman", "Antigravity", "Claude", "Docker", "OWASP"],
       languages_known: ["Tamil", "English"],
     };
 
