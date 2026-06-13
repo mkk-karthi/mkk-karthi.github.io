@@ -66,17 +66,17 @@ class PortfolioApplication {
     ];
 
     // Calculate total years of experience
-    this.experience = this.calculateExperienceYears(this.jobs);
+    this.totalExperience = this.calculateExperienceYears(this.jobs);
 
     // ===== PROFESSIONAL DESCRIPTION =====
-    this.description = `With ${this.experience}+ years of experience, I am a proficient Full Stack Developer specializing in front-end (Vue.js, React.js) and back-end (PHP, Python, Laravel, Node.js) technologies. Skilled in MySQL and PostgreSQL, I excel in building dynamic web applications such as e-commerce sites, social media apps, members portal, and NPM Packages. Adept at troubleshooting and collaborating with teams for timely project completion. Passionate about crafting efficient, scalable solutions for optimal user experience, I am committed to continuous technical skill enhancement. I have also integrated OpenAI, Google Ads and Shopify APIs into various projects, enhancing functionality and optimizing user engagement.`;
+    this.description = `Senior Full Stack Developer with ${this.totalExperience}+ years of experience building scalable web applications across e-commerce, transport booking portals, social media, and enterprise platforms. Proficient in React.js, Node.js, Python (FastAPI), and Laravel, with expertise integrating third-party APIs (OpenAI, Shopify, Google Ads) and leveraging AI-assisted development tools (Claude Code, Codex) to accelerate feature delivery.`;
 
     // ===== SEO META DATA =====
     this.metaData = {
       title: "Karthikeyan Portfolio",
-      description: `Full Stack Developer | ${this.experience}+ Years | Laravel | MySQL | Vue.js | React.js | Node.js | Python`,
+      description: `Portfolio of Karthikeyan M, a Senior Full Stack Developer with ${this.totalExperience}+ years of experience specializing in React.js, Node.js, Python (FastAPI), and Laravel. Discover high-performance web applications and backend solutions.`,
       keywords:
-        "Karthikeyan, Portfolio, MKK, Laravel, MySQL, Vue.js, React.js, Node.js, PHP, Python, Full Stack Developer, Web Developer",
+        "Karthikeyan M, Full Stack Developer, Front End Developer, Back End Developer, React.js, Node.js, FastAPI, Python, Php, Laravel, Chennai, Web App Development, NPM Packages",
       author: "Karthikeyan M",
     };
 
@@ -86,12 +86,11 @@ class PortfolioApplication {
 
     // ===== TECHNICAL SKILLS =====
     this.skills = {
-      programming_languages: ["HTML5", "CSS3", "JavaScript", "PHP", "Python", "TypeScript"],
-      frameworks: ["Laravel", "Express.js", "Vue.js", "React.js", "FastAPI", "Django"],
-      libraries: ["Bootstrap", "Tailwind CSS", "jQuery", "Vuex", "Redux"],
+      programming_languages: ["HTML5", "CSS3", "JavaScript", "Python", "PHP", "TypeScript"],
+      frameworks: ["Laravel", "Express.js", "React.js", "FastAPI", "Django", "Vue.js"],
+      libraries: ["Bootstrap", "Tailwind CSS", "jQuery"],
       database: ["MySQL", "PostgreSQL"],
-      tools: ["Git", "VScode", "Postman", "Antigravity", "Claude", "Docker", "OWASP"],
-      languages_known: ["Tamil", "English"],
+      tools: ["Git", "VScode", "Postman", "Codex", "Claude", "Docker", "OWASP"],
     };
 
     // ===== WORK EXPERIENCE =====
@@ -99,43 +98,36 @@ class PortfolioApplication {
       {
         role: "Senior Software Engineer",
         company: "ISYS Technologies",
-        date: "SEP 2025 - Current",
-        content: "",
+        date: "SEP 2025 - Present",
+        content: "Architecting and developing full-stack web applications using Laravel and FastAPI. Designing RESTful APIs and integrating third-party services to meet B2B requirements. Utilizing AI-assisted development tools (Claude Code, Codex) to improve code quality and delivery speed.",
       },
       {
         role: "Senior Software Engineer",
         company: "Clarity TTS",
         date: "Feb 2025 - JUL 2025",
         content:
-          "Developing B2B and B2C transport websites for booking flights, hotels, and transfers. Integrated third-party APIs for real-time flight and hotel availability. Built features using Laravel (backend), Vue.js (frontend), and Node.js (services). Improved performance and user experience across booking flows. Worked closely with UI/UX and QA teams to ensure smooth releases.",
+          "Developing B2B and B2C transport websites for booking flights, and hotels. Integrated real-time third-party APIs for live flight availability. Developed order management and invoice generation modules to streamline workflows.",
       },
       {
         role: "Software Engineer",
         company: "Constient Global Solutions",
         date: "Aug 2022 - Oct 2024",
         content:
-          "Developed e-commerce platforms, enhancing user experience and conversion rates. Integrated Shopify API for efficient product management and order processing. Collaborated on social media applications to boost user engagement. Followed Waterfall methodologies for timely project delivery and high quality.",
+          "Developed e-commerce platforms, enhancing user experience and conversion rates. Integrated OpenAI API for intelligent recommendations, and Shopify/Google Ads APIs to optimize marketing funnels. Collaborated on real-time social web applications.",
       },
       {
         role: "Software Developer",
         company: "Vaagai Tecknowledge",
         date: "Jun 2021 - Jul 2022",
         content:
-          "Developed an Order Management System to enhance order processing and inventory tracking. Created a Members Portal for improved user engagement and personalized access. Collaborated with teams to gather requirements and align with business goals. Used modern frameworks to ensure scalable and maintainable applications.",
-      },
-      {
-        role: "Printing & Computer Operator",
-        company: "Xerox shop",
-        date: "May 2019 - Jun 2021",
-        content:
-          "From May 2019 to Jun 2021, I had the privilege of working in a part-time job for a duration of three years. During my time there, I was involved in various responsibilities, including printing, computer operator, and software installation.",
+          "Developed an Order Management System for efficient order processing and inventory tracking. Built a Members Portal with integrated event management capabilities to boost user engagement and personalized access. Used modern frameworks to ensure scalable and maintainable applications.",
       },
     ];
 
     // ===== EDUCATION =====
     this.education = [
       {
-        role: "Bachelors Degree",
+        role: "B.Sc. Computer Science",
         company: "VHNSN College (2018 - 2021)",
         content:
           "I pursued my college education at VHNSNC in 2021, specializing in Bachelor of Computer Science with English as the medium of instruction. I am proud to have achieved a commendable score of 72%, reflecting my dedication and hard work throughout my academic journey.",
@@ -360,7 +352,7 @@ class PortfolioApplication {
     $("#mobile").text(this.mobile);
     $("#current_location").text(this.currentLocation);
     $("#languages").text(this.languages);
-    $("#experience").text(this.experience);
+    $("#experience").text(this.totalExperience);
 
     // Update meta tags for SEO
     this.updateMetaTags();
