@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mkkcreation.com"),
   title: metadatas.title,
   description: metadatas.description,
   icons: metadatas.icons,
