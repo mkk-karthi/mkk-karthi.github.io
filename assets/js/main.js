@@ -97,9 +97,9 @@ class PortfolioApplication {
     this.experiences = [
       {
         role: "Senior Software Engineer",
-        company: "ISYS Technologies",
-        date: "SEP 2025 - Present",
-        content: "Architecting and developing full-stack web applications using Laravel and FastAPI. Designing RESTful APIs and integrating third-party services to meet B2B requirements. Utilizing AI-assisted development tools (Claude Code, Codex) to improve code quality and delivery speed.",
+        company: "GK Technologies",
+        date: "AUG 2025 - Present",
+        content: "Architecting full-stack applications using Laravel, Node.js and Python. Implemented an abandoned cart recovery system with coupon offers, recovering 18% of abandoned orders. Integrated Stripe and Google Play Billing for secure, seamless web and Android payments.",
       },
       {
         role: "Senior Software Engineer",
